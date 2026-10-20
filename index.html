@@ -210,26 +210,31 @@
     .host .link { display: inline-block; font-family: var(--font-ui); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; }
 
     /* ── Come ──────────────────────────────────────────────── */
-    .come { padding-top: clamp(3.5rem, 7vw, 5.5rem); }
+    .come { padding-top: clamp(6rem, 12vw, 9rem); }
 
-    /* Closing section: original Sanctuary purple, slowly shifting */
+    /* Closing section: earth fades slowly into deep Sanctuary purple */
     .dusk {
       position: relative; overflow: hidden; isolation: isolate;
-      background: #3f256b;
-      --gold: #ffc23c; --accent: #fa2fb5;
-      --text: #f5eeff; --text-muted: #c9b8e8; --text-faint: #a58cca;
-      --divider: rgba(245,238,255,0.15);
+      background: linear-gradient(to bottom,
+        rgba(28,18,12,0.5) 0%,
+        rgba(34,21,40,0.7) 22%,
+        rgba(40,25,62,0.85) 45%,
+        #2a1a45 70%,
+        #2a1a45 100%);
+      --gold: #f2b84a; --accent: #d97ab8;
+      --text-muted: #d4c4dc; --text-faint: #a593b4;
     }
     .dusk::before {
       content: ''; position: absolute; inset: -35%; z-index: -1; pointer-events: none;
       background:
-        radial-gradient(35% 40% at 20% 30%, rgba(250,47,181,0.38), transparent 70%),
-        radial-gradient(40% 45% at 80% 25%, rgba(120,70,200,0.55), transparent 70%),
-        radial-gradient(35% 40% at 70% 80%, rgba(255,194,60,0.20), transparent 70%),
-        radial-gradient(40% 45% at 25% 80%, rgba(46,26,82,0.80), transparent 70%),
-        radial-gradient(30% 30% at 50% 50%, rgba(200,60,170,0.22), transparent 70%);
-      filter: blur(50px);
-      animation: drift 30s ease-in-out infinite alternate;
+        radial-gradient(35% 40% at 20% 55%, rgba(250,47,181,0.14), transparent 70%),
+        radial-gradient(40% 45% at 80% 50%, rgba(110,62,170,0.28), transparent 70%),
+        radial-gradient(35% 40% at 70% 85%, rgba(255,194,60,0.07), transparent 70%),
+        radial-gradient(30% 30% at 45% 70%, rgba(150,60,140,0.12), transparent 70%);
+      filter: blur(60px);
+      -webkit-mask-image: linear-gradient(to bottom, transparent 30%, #000 60%);
+              mask-image: linear-gradient(to bottom, transparent 30%, #000 60%);
+      animation: drift 36s ease-in-out infinite alternate;
     }
     @media (prefers-reduced-motion: reduce) { .dusk::before { animation: none; } }
     .email { font-family: var(--font-d); font-style: italic; font-size: clamp(1.4rem, 1rem + 1.6vw, 2.1rem); margin-top: 1.5rem; display: inline-block; }
