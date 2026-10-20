@@ -26,6 +26,7 @@
       --glow-a: rgba(250,47,181,0.16);
       --glow-b: rgba(255,194,60,0.08);
       --photo-tint: rgba(63,37,107,0.15);
+      --band: #2f1b55;
     }
     [data-palette="grove"] {
       --bg: #322556;
@@ -40,6 +41,7 @@
       --glow-a: rgba(150,120,210,0.20);
       --glow-b: rgba(140,170,100,0.14);
       --photo-tint: rgba(44,36,64,0.15);
+      --band: #261c47;
     }
     [data-palette="earth"] {
       --bg: #2b2019;
@@ -54,6 +56,7 @@
       --glow-a: rgba(217,115,74,0.16);
       --glow-b: rgba(143,163,107,0.12);
       --photo-tint: rgba(43,32,25,0.2);
+      --band: rgba(28,18,12,0.5);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -81,6 +84,34 @@
         radial-gradient(ellipse 50% 60% at 80% 70%, var(--glow-b) 0%, transparent 60%);
     }
     main, header, footer { position: relative; z-index: 1; }
+
+    /* Alternating section bands (full-bleed) */
+    [data-bands="on"] section.band {
+      background: var(--band);
+      box-shadow: 0 0 0 100vmax var(--band);
+      clip-path: inset(0 -100vmax);
+      transition: background 400ms, box-shadow 400ms;
+    }
+
+    /* Earth: slow, drifting multi-color gradient */
+    [data-palette="earth"] .glow {
+      inset: -15%;
+      background:
+        radial-gradient(38% 45% at 18% 22%, rgba(217,115,74,0.55), transparent 70%),
+        radial-gradient(40% 50% at 82% 20%, rgba(143,163,107,0.50), transparent 70%),
+        radial-gradient(45% 45% at 72% 82%, rgba(230,169,74,0.42), transparent 70%),
+        radial-gradient(42% 48% at 22% 78%, rgba(122,72,128,0.50), transparent 70%),
+        radial-gradient(30% 35% at 50% 50%, rgba(176,92,64,0.30), transparent 70%);
+      filter: blur(50px);
+      animation: drift 36s ease-in-out infinite alternate;
+    }
+    [data-palette="earth"] { --card: rgba(30,20,14,0.42); }
+    @keyframes drift {
+      0%   { transform: translate(0, 0) scale(1) rotate(0deg); }
+      50%  { transform: translate(-5%, 4%) scale(1.12) rotate(10deg); }
+      100% { transform: translate(4%, -4%) scale(1.06) rotate(-8deg); }
+    }
+    @media (prefers-reduced-motion: reduce) { [data-palette="earth"] .glow { animation: none; } }
 
     /* ── Draft bar ─────────────────────────────────────────── */
     .draft-bar {
@@ -226,7 +257,7 @@
     @media (prefers-reduced-motion: reduce) { .r { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
   </style>
 </head>
-<body data-palette="dusk">
+<body data-palette="dusk" data-bands="on">
 
 <div class="draft-bar" role="note">
   <span><strong>Draft</strong> &nbsp;Private preview. Not linked or listed anywhere.</span>
@@ -234,6 +265,10 @@
     <button type="button" data-set="dusk" aria-pressed="true">Dusk</button>
     <button type="button" data-set="earth" aria-pressed="false">Earth</button>
     <button type="button" data-set="grove" aria-pressed="false">Grove</button>
+  </span>
+  <span class="palette-toggle" aria-label="Alternate section colors">
+    <button type="button" data-bands="on" aria-pressed="true">Bands on</button>
+    <button type="button" data-bands="off" aria-pressed="false">Off</button>
   </span>
 </div>
 
@@ -271,7 +306,7 @@
   </section>
 
   <!-- ABOUT -->
-  <section id="about" class="wrap">
+  <section id="about" class="wrap band">
     <div class="narrow center">
       <p class="eyebrow r">What is Sanctuary</p>
       <h2 class="r">Not a community center.<br>A home.</h2>
@@ -300,7 +335,7 @@
   </section>
 
   <!-- ROOTS -->
-  <section class="wrap">
+  <section class="wrap band">
     <div class="narrow center">
       <p class="eyebrow r">Our roots</p>
       <h2 class="r">Rooted in our traditions. Open to everyone.</h2>
@@ -327,7 +362,7 @@
   </section>
 
   <!-- GATHERINGS -->
-  <section id="gatherings" class="wrap">
+  <section id="gatherings" class="wrap band">
     <div class="center">
       <p class="eyebrow r">Gatherings</p>
       <h2 class="r">What actually happens here</h2>
@@ -387,7 +422,7 @@
   </section>
 
   <!-- HOSTS -->
-  <section id="hosts" class="wrap">
+  <section id="hosts" class="wrap band">
     <div class="center">
       <p class="eyebrow r">Your hosts</p>
       <h2 class="r">Two friends, one house</h2>
@@ -406,7 +441,7 @@
         <h3>Zach Schaffer</h3>
         <p class="role">Co-founder &amp; host</p>
         <p>Zach is a founder, facilitator, and educator who designs rituals and gatherings that help people find their way back to one another. He co-founded Project Shema, a leading antisemitism education organization rooted in curiosity and compassion, and has spent more than a decade bringing people together across differences.</p>
-        <p>At Sanctuary he's usually the one in the kitchen, making introductions and making sure you feel at home.</p>
+        <p>At Sanctuary, ask him what’s cooking. It’s usually a meal, a ritual, or an introduction.</p>
         <a class="link" href="https://www.zachschaffer.com" target="_blank" rel="noopener">zachschaffer.com ↗</a>
       </article>
     </div>
@@ -440,7 +475,7 @@
   setTimeout(() => els.forEach(el => el.classList.add('on')), 2500);
 
   // Palette toggle (draft only)
-  const btns = document.querySelectorAll('.palette-toggle button');
+  const btns = document.querySelectorAll('.palette-toggle button[data-set]');
   function setPalette(p) {
     document.body.dataset.palette = p;
     btns.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.set === p)));
@@ -448,6 +483,16 @@
   }
   btns.forEach(b => b.addEventListener('click', () => setPalette(b.dataset.set)));
   try { const saved = localStorage.getItem('sanctuary-palette'); if (saved) setPalette(saved); } catch (e) {}
+
+  // Section bands toggle (draft only)
+  const bandBtns = document.querySelectorAll('[data-bands]:not(body)');
+  function setBands(v) {
+    document.body.dataset.bands = v;
+    bandBtns.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.bands === v)));
+    try { localStorage.setItem('sanctuary-bands', v); } catch (e) {}
+  }
+  bandBtns.forEach(b => b.addEventListener('click', () => setBands(b.dataset.bands)));
+  try { const sb = localStorage.getItem('sanctuary-bands'); if (sb) setBands(sb); } catch (e) {}
 </script>
 </body>
 </html>
