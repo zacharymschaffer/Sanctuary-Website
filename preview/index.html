@@ -242,7 +242,9 @@
     }
     .host .role { font-family: var(--font-ui); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
     .host p { font-size: 0.97rem; color: var(--text-muted); }
-    .host .link { display: inline-block; margin-top: 1.2rem; font-family: var(--font-ui); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; }
+    .host .links { display: flex; align-items: center; gap: 1rem; margin-top: 1.2rem; }
+    .host .ig { display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; border: 1px solid color-mix(in srgb, var(--gold) 50%, transparent); color: var(--gold); }
+    .host .link { display: inline-block; font-family: var(--font-ui); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; }
 
     /* ── Come ──────────────────────────────────────────────── */
     .come { border-top: 1px solid var(--divider); }
@@ -434,7 +436,10 @@
         <p class="role">Co-founder &amp; host</p>
         <p>Chloé is the founder of Theory of Enchantment, a practice of chanting, breath, sound, and spiritual counseling that helps people find their voice and use it to build connection. Her work on belonging has reached audiences from TED to Harvard and has been covered by <em>The New York Times</em>, <em>The Atlantic</em>, and NPR.</p>
         <p>At Sanctuary she's the one who will get the whole room singing.</p>
-        <a class="link" href="https://theoryofenchantment.com/" target="_blank" rel="noopener">Theory of Enchantment ↗</a>
+        <div class="links">
+          <a class="link" href="https://theoryofenchantment.com/" target="_blank" rel="noopener">Theory of Enchantment ↗</a>
+          <a class="ig" href="https://www.instagram.com/domthefloor/" target="_blank" rel="noopener" aria-label="Chloé on Instagram"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></a>
+        </div>
       </article>
       <article class="host r d1">
         <div class="portrait"><img src="zach.jpg" alt="Zach Schaffer sitting cross-legged on sand, hands open"></div>
@@ -442,7 +447,10 @@
         <p class="role">Co-founder &amp; host</p>
         <p>Zach is a founder, facilitator, and educator who designs rituals and gatherings that help people find their way back to one another. He co-founded Project Shema, a leading antisemitism education organization rooted in curiosity and compassion, and has spent more than a decade bringing people together across differences.</p>
         <p>At Sanctuary, ask him what’s cooking. It’s usually a meal, a ritual, or an introduction.</p>
-        <a class="link" href="https://www.zachschaffer.com" target="_blank" rel="noopener">zachschaffer.com ↗</a>
+        <div class="links">
+          <a class="link" href="https://www.zachschaffer.com" target="_blank" rel="noopener">zachschaffer.com ↗</a>
+          <a class="ig" href="https://www.instagram.com/pocketmangos/" target="_blank" rel="noopener" aria-label="Zach on Instagram"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></a>
+        </div>
       </article>
     </div>
   </section>
