@@ -189,6 +189,17 @@
     }
     .notice p { color: var(--text-muted); }
 
+    .gathering { overflow: hidden; }
+    .gathering .g-img { width: calc(100% + 3.2rem); max-width: none; margin: -1.8rem -1.6rem 1.3rem; aspect-ratio: 4 / 3; object-fit: cover; }
+    .arch-photo video { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* ── Moments ── */
+    .moments-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.9rem; margin-top: 2.5rem; }
+    .moments-grid img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 14px; border: 1px solid var(--divider); }
+    .moments-grid img:nth-child(2) { border-radius: 999px 999px 14px 14px; }
+    .moments-grid img:nth-child(4) { border-radius: 999px 999px 14px 14px; }
+    @media (max-width: 640px) { .moments-grid { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; } .moments-grid img:nth-child(4) { border-radius: 14px; } .moments-grid img:nth-child(3) { border-radius: 999px 999px 14px 14px; } }
+
     /* ── Story ─────────────────────────────────────────────── */
     .pull { font-family: var(--font-d); font-style: italic; font-weight: 300; font-size: clamp(1.6rem, 1.1rem + 2vw, 2.4rem); line-height: 1.3; color: var(--gold); margin: 2.5rem 0; text-align: center; text-wrap: balance; }
 
@@ -303,7 +314,7 @@
       <a class="btn" href="#about">What is this place?</a>
     </div>
     <figure class="r">
-      <div class="arch-photo"><img src="/images/gathering.jpg" alt="Neighbors sitting in a circle on cushions and couches in Sanctuary's living room, under soft pink light"></div>
+      <div class="arch-photo"><video src="/images/hero-loop.mp4" poster="/images/hero-poster.jpg" autoplay muted loop playsinline aria-label="Neighbors gathered in a circle in Sanctuary's living room for Rosh Hashanah"></video></div>
       <figcaption class="caption">A Rosh Hashanah gathering</figcaption>
     </figure>
   </section>
@@ -373,31 +384,37 @@
     </div>
     <div class="gatherings">
       <article class="gathering r">
+        <img class="g-img" src="/images/g-jams.jpg" alt="A drum circle on floor cushions under blue light" loading="lazy">
         <p class="kind">Music</p>
         <h3>Jams &amp; Drum Circles</h3>
         <p>Bring an instrument, or borrow one of ours. We start with drums, drift into songs, and keep playing as long as the room wants to.</p>
       </article>
       <article class="gathering r d1">
+        <img class="g-img" src="/images/g-salon.jpg" alt="A poet reading from a book at the mic in front of a red curtain" loading="lazy">
         <p class="kind">Salon</p>
         <h3>Music &amp; Poetry Salons</h3>
         <p>An evening of songs and poems from friends, then an open mic and an open jam. Radical inclusion, mild transcendence.</p>
       </article>
       <article class="gathering r d2">
+        <img class="g-img" src="/images/g-meditation.jpg" alt="A woman with her eyes closed in meditation, holding a drum" loading="lazy">
         <p class="kind">Practice</p>
         <h3>Meditation &amp; Prayer</h3>
         <p>Experiments in stillness and devotion, open to people of any belief or none. Come curious and leave with a practice to take home.</p>
       </article>
       <article class="gathering r">
+        <img class="g-img" src="/images/g-shabbat.jpg" alt="A full living room gathered for Rosh Hashanah" loading="lazy">
         <p class="kind">Table</p>
         <h3>Shabbat &amp; Holy Days</h3>
         <p>Cozy, co-created celebrations with a little tradition, a lot of song, and a healthy dose of food and hanging out.</p>
       </article>
       <article class="gathering r d1">
+        <img class="g-img" src="/images/g-outdoors.jpg" alt="A fire spinner performing in the backyard at night" loading="lazy">
         <p class="kind">Outdoors</p>
         <h3>Out in the Living World</h3>
         <p>Tree blessings, barefoot walks, and potlucks in the park, then long evenings around the fire pit in the backyard.</p>
       </article>
       <article class="gathering r d2">
+        <img class="g-img" src="/images/g-learning.jpg" alt="People lying on cushions, listening together in a dim room" loading="lazy">
         <p class="kind">Learning</p>
         <h3>Listening &amp; Learning</h3>
         <p>Teachings, texts, and podcasts that crack us open, taken in together and talked over afterward with a pot of tea.</p>
@@ -421,6 +438,22 @@
       <div class="lede r">
         <p>We also weave with other community builders, healers, artists, and organizations across Brooklyn, and our door is open to more of them.</p>
       </div>
+    </div>
+  </section>
+
+  <!-- MOMENTS -->
+  <section class="wrap moments" aria-label="Moments at Sanctuary">
+    <div class="center">
+      <p class="eyebrow r">Moments</p>
+      <h2 class="r">Around the house</h2>
+    </div>
+    <div class="moments-grid">
+      <img class="r" src="/images/m-1.jpg" alt="A singer with an acoustic guitar under pink and blue light" loading="lazy">
+      <img class="r d1" src="/images/m-3.jpg" alt="A musician performing for a small crowd beside a tree-of-life tapestry" loading="lazy">
+      <img class="r d2" src="/images/m-2.jpg" alt="A packed room listening to a performer under string lights" loading="lazy">
+      <img class="r" src="/images/m-4.jpg" alt="A guitarist singing in front of a red curtain" loading="lazy">
+      <img class="r d1" src="/images/m-5.jpg" alt="A man playing guitar on the couch during a jam" loading="lazy">
+      <img class="r d2" src="/images/m-6.jpg" alt="Guests gathered on the floor during an evening performance" loading="lazy">
     </div>
   </section>
 
