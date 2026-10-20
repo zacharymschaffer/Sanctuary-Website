@@ -104,6 +104,8 @@
     .brand img { width: 26px; height: 26px; }
     .nav ul { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.2rem 1.4rem; list-style: none; }
     .nav ul a { font-family: var(--font-ui); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-muted); }
+    .nav ul a { transition: color 180ms; }
+    .nav ul a:hover, .nav ul a:focus-visible { color: var(--gold); opacity: 1; }
     @media (max-width: 640px) { .nav ul { display: none; } }
 
     /* ── Layout ────────────────────────────────────────────── */
