@@ -27,6 +27,20 @@
       --glow-b: rgba(255,194,60,0.08);
       --photo-tint: rgba(63,37,107,0.15);
     }
+    [data-palette="grove"] {
+      --bg: #322556;
+      --bg-deep: #231a3d;
+      --card: rgba(190,210,160,0.05);
+      --gold: #f0bd4f;
+      --accent: #a8bf80;
+      --text: #f4eee2;
+      --text-muted: #d2c8dc;
+      --text-faint: #9d92ad;
+      --divider: rgba(244,238,226,0.14);
+      --glow-a: rgba(150,120,210,0.20);
+      --glow-b: rgba(140,170,100,0.14);
+      --photo-tint: rgba(44,36,64,0.15);
+    }
     [data-palette="earth"] {
       --bg: #2b2019;
       --bg-deep: #211812;
@@ -103,7 +117,7 @@
     /* ── Layout ────────────────────────────────────────────── */
     .wrap { max-width: 1080px; margin-inline: auto; padding-inline: clamp(1rem, 5vw, 2.5rem); }
     .narrow { max-width: 640px; margin-inline: auto; }
-    section { padding-block: clamp(4rem, 9vw, 7rem); }
+    section { padding-block: clamp(2.25rem, 4.5vw, 3.75rem); }
     .center { text-align: center; }
 
     .eyebrow {
@@ -123,7 +137,7 @@
     .rule { width: 32px; height: 1px; background: var(--gold); opacity: 0.45; margin: 2.5rem auto; }
 
     /* ── Hero ──────────────────────────────────────────────── */
-    .hero { padding-top: clamp(4.5rem, 11vw, 8rem); padding-bottom: clamp(3rem, 6vw, 4.5rem); text-align: center; }
+    .hero { padding-top: clamp(4.5rem, 11vw, 8rem); padding-bottom: clamp(1.5rem, 3vw, 2.25rem); text-align: center; }
     .hero-name {
       font-family: var(--font-d); font-weight: 300; font-style: italic;
       font-size: clamp(4rem, 2rem + 8vw, 9rem); line-height: 1; color: var(--gold); margin-bottom: 1.4rem;
@@ -151,13 +165,14 @@
     .relations {
       display: flex; flex-wrap: wrap; justify-content: center; gap: 0.35rem 1rem; list-style: none; margin: 2rem 0 0;
     }
+    .relations + .relations { margin-top: 0.4rem; }
     .relations li { font-family: var(--font-d); font-style: italic; font-weight: 300; font-size: clamp(1.15rem, 0.95rem + 0.7vw, 1.45rem); color: var(--text); }
     .relations li:not(:last-child)::after { content: ' ·'; color: var(--gold); font-style: normal; }
 
     /* ── Ways ──────────────────────────────────────────────── */
     .ways { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 3rem; }
     .way { flex: 1 1 170px; max-width: 220px;
-      background: var(--card); border: 1px solid var(--divider);
+      background: var(--card); border: 1.5px solid color-mix(in srgb, var(--gold) 55%, transparent);
       border-radius: 140px 140px 14px 14px; padding: 3rem 1.4rem 1.6rem; text-align: center;
     }
     @media (max-width: 640px) { .way { flex-basis: 140px; padding: 2.4rem 0.9rem 1.2rem; } .way h3 { font-size: 1.3rem !important; } }
@@ -186,8 +201,9 @@
     /* ── Hosts ─────────────────────────────────────────────── */
     .hosts { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
     .host { background: var(--card); border: 1px solid var(--divider); border-radius: 18px; padding: 2rem 1.8rem; }
+    .portrait img { width: 100%; height: 100%; object-fit: cover; }
     .portrait {
-      width: 120px; height: 140px; border-radius: 999px 999px 10px 10px; margin-bottom: 1.4rem;
+      width: 150px; height: 180px; border-radius: 999px 999px 10px 10px; margin-bottom: 1.4rem; overflow: hidden;
       display: grid; place-items: center;
       background: linear-gradient(160deg, color-mix(in srgb, var(--accent) 30%, transparent), color-mix(in srgb, var(--gold) 18%, transparent));
       font-family: var(--font-d); font-style: italic; font-size: 2.6rem; color: var(--gold);
@@ -217,6 +233,7 @@
   <span class="palette-toggle" aria-label="Try a color palette">
     <button type="button" data-set="dusk" aria-pressed="true">Dusk</button>
     <button type="button" data-set="earth" aria-pressed="false">Earth</button>
+    <button type="button" data-set="grove" aria-pressed="false">Grove</button>
   </span>
 </div>
 
@@ -242,14 +259,14 @@
     <p class="eyebrow r">Crown Heights, Brooklyn</p>
     <h1 class="hero-name r d1">Sanctuary</h1>
     <p class="hero-line r d2">A living room for the living world.</p>
-    <p class="hero-sub r d3">A spiritual home in Brooklyn where neighbors gather through story, song, movement, and food, to come back into relationship with ourselves, each other, and the world around us.</p>
+    <p class="hero-sub r d3">A spiritual home in Brooklyn. We gather through story, song, movement, and food to come back into relationship with ourselves, with each other, and with the world around us.</p>
     <div class="hero-cta r d4">
       <a class="btn solid" href="#come">Come to a gathering</a>
       <a class="btn" href="#about">What is this place?</a>
     </div>
     <figure class="r">
       <div class="arch-photo"><img src="gathering.jpg" alt="Neighbors sitting in a circle on cushions and couches in Sanctuary's living room, under soft pink light"></div>
-      <figcaption class="caption">An evening in the living room</figcaption>
+      <figcaption class="caption">A Rosh Hashanah gathering</figcaption>
     </figure>
   </section>
 
@@ -259,9 +276,9 @@
       <p class="eyebrow r">What is Sanctuary</p>
       <h2 class="r">Not a community center.<br>A home.</h2>
       <div class="lede r">
-        <p>Sanctuary is a house in Crown Heights with its door open. We host gatherings that are spiritual, embodied, and educational: meditations and music jams, Shabbat tables and holy days, salons, prayer experiments, and picnics with the trees.</p>
-        <p>Some nights are quiet and deep. Some go until the fire dies. Nearly all of them involve snacks.</p>
-        <p>What ties them together is an intention: to help each other heal, learn, and remember how to belong.</p>
+        <p>Sanctuary is a house in Crown Heights with its door open to everyone. We host gatherings that are spiritual, embodied, and educational: meditations and music jams, Shabbat tables and holiday events, salons, prayer labs, Emerald Podcast listening parties, BBQs, cuddle puddles, and picnics with the trees.</p>
+        <p>Some nights are quiet and deep. Some go until the sun rises. Nearly all of them involve fruit and tea.</p>
+        <p>What ties them together is an intention: to help each other heal, learn, and remember how to belong in this world.</p>
       </div>
     </div>
   </section>
@@ -273,11 +290,12 @@
       <h2 class="r">Everything here is a relative.</h2>
       <div class="lede r">
         <p>There's an old word for how we try to live: <em>animism</em>. It simply means treating the world as alive and worth being in relationship with. Not as a backdrop, not as a resource, but as kin.</p>
-        <p>You don't need to believe anything in particular to walk in. You just need to be willing to say hello.</p>
+        <p>You don't need to believe anything in particular to walk in. You just need a desire to connect to something deeper within or around yourself.</p>
       </div>
-      <ul class="relations r" aria-label="What we are in relationship with">
-        <li>Ancestors</li><li>Elements</li><li>Plants</li><li>Seasons</li><li>Sound</li><li>This house</li><li>Each other</li>
-      </ul>
+      <div class="r" aria-label="What we are in relationship with">
+        <ul class="relations"><li>Source</li><li>Ancestors</li><li>Elements</li><li>Plants</li><li>Seasons</li></ul>
+        <ul class="relations"><li>Sound</li><li>Touch</li><li>This house</li><li>Each other</li></ul>
+      </div>
     </div>
   </section>
 
@@ -300,11 +318,11 @@
       <h2 class="r">Five doorways in</h2>
     </div>
     <div class="ways">
-      <div class="way r"><h3>Breaking Bread</h3><p>Shabbat tables, potlucks, backyard grills. Every gathering starts with feeding each other.</p></div>
-      <div class="way r d1"><h3>Story &amp; Song</h3><p>Poems, jams, drum circles, and the stories that remind us who we are.</p></div>
-      <div class="way r d2"><h3>Stillness</h3><p>Meditation, prayer, and ritual: quieter ways of listening to ourselves and the world.</p></div>
-      <div class="way r d3"><h3>Mutual Care</h3><p>Showing up for each other and our neighbors, the way our ancestors did.</p></div>
-      <div class="way r d4"><h3>Movement</h3><p>A movement of people learning to heal, grow, and come home to one another.</p></div>
+      <div class="way r"><h3>Breaking Bread</h3><p>Shared meals, potlucks, and grills. Food finds its way into much of what we do.</p></div>
+      <div class="way r d1"><h3>Story &amp; Song</h3><p>Poems, jams, and drum circles, and the stories that remind us who we really are.</p></div>
+      <div class="way r d2"><h3>Stillness</h3><p>Meditation, prayer, and ritual: quieter ways of listening to ourselves and to the world.</p></div>
+      <div class="way r d3"><h3>Mutual Care</h3><p>Showing up for each other and for our neighbors, the way our ancestors did.</p></div>
+      <div class="way r d4"><h3>Movement</h3><p>Dance, breath, and embodiment practice: letting the body lead us back to ourselves.</p></div>
     </div>
   </section>
 
@@ -320,37 +338,31 @@
         <p class="kind">Music</p>
         <h3>Jams &amp; Drum Circles</h3>
         <p>Bring an instrument, or borrow one of ours. We start with drums, drift into songs, and keep playing as long as the room wants to.</p>
-        <p class="seen">Past: <em>This Jam Is YOUR Jam</em>, <em>Monday Night Jam</em></p>
       </article>
       <article class="gathering r d1">
         <p class="kind">Salon</p>
         <h3>Music &amp; Poetry Salons</h3>
         <p>An evening of songs and poems from friends, then an open mic and an open jam. Radical inclusion, mild transcendence.</p>
-        <p class="seen">Past: <em>Who Gave Them the Mic?</em>, episodes 1–3</p>
       </article>
       <article class="gathering r d2">
         <p class="kind">Practice</p>
         <h3>Meditation &amp; Prayer</h3>
-        <p>Experiments in stillness and devotion, open to people of any belief or none. Come curious and leave with a practice you can take home.</p>
-        <p class="seen">Past: <em>Prayer Lab</em>, <em>Shevet Meditation</em></p>
+        <p>Experiments in stillness and devotion, open to people of any belief or none. Come curious and leave with a practice to take home.</p>
       </article>
       <article class="gathering r">
         <p class="kind">Table</p>
         <h3>Shabbat &amp; Holy Days</h3>
         <p>Cozy, co-created celebrations with a little tradition, a lot of song, and a healthy dose of food and hanging out.</p>
-        <p class="seen">Past: <em>Living Room Shul</em> for Rosh Hashanah, <em>Hello Spring</em></p>
       </article>
       <article class="gathering r d1">
         <p class="kind">Outdoors</p>
         <h3>Out in the Living World</h3>
-        <p>Tree blessings, barefoot walks, and potlucks in the park. Also fire pits, because fire is a relative too.</p>
-        <p class="seen">Past: <em>Love a Tree</em> picnic in Prospect Park, <em>Sunday BBQ</em></p>
+        <p>Tree blessings, barefoot walks, and potlucks in the park, then long evenings around the fire pit in the backyard.</p>
       </article>
       <article class="gathering r d2">
         <p class="kind">Learning</p>
         <h3>Listening &amp; Learning</h3>
-        <p>Teachings, texts, and conversations that crack us open, taken in together and talked over afterward.</p>
-        <p class="seen">Past: <em>Emerald Podcast Listening Party</em></p>
+        <p>Teachings, texts, and podcasts that crack us open, taken in together and talked over afterward with a pot of tea.</p>
       </article>
     </div>
     <div class="notice r">
@@ -382,7 +394,7 @@
     </div>
     <div class="hosts">
       <article class="host r">
-        <div class="portrait" aria-hidden="true">C</div>
+        <div class="portrait"><img src="chloe.jpg" alt="Chloé Simone playing guitar on a park bench"></div>
         <h3>Chloé Simone</h3>
         <p class="role">Co-founder &amp; host</p>
         <p>Chloé is the founder of Theory of Enchantment, a practice of chanting, breath, sound, and spiritual counseling that helps people find their voice and use it to build connection. Her work on belonging has reached audiences from TED to Harvard and has been covered by <em>The New York Times</em>, <em>The Atlantic</em>, and NPR.</p>
@@ -390,11 +402,11 @@
         <a class="link" href="https://theoryofenchantment.com/" target="_blank" rel="noopener">Theory of Enchantment ↗</a>
       </article>
       <article class="host r d1">
-        <div class="portrait" aria-hidden="true">Z</div>
+        <div class="portrait"><img src="zach.jpg" alt="Zach Schaffer sitting cross-legged on sand, hands open"></div>
         <h3>Zach Schaffer</h3>
         <p class="role">Co-founder &amp; host</p>
-        <p>Zach is a founder, facilitator, and educator who designs rituals and gatherings that help people find their way back to one another. He co-founded Project Shema, one of the country's leading antisemitism education organizations, and has spent more than a decade organizing across communities.</p>
-        <p>At Sanctuary he's usually the one handing you a drum.</p>
+        <p>Zach is a founder, facilitator, and educator who designs rituals and gatherings that help people find their way back to one another. He co-founded Project Shema, a leading antisemitism education organization rooted in curiosity and compassion, and has spent more than a decade bringing people together across differences.</p>
+        <p>At Sanctuary he's usually the one in the kitchen, making introductions and making sure you feel at home.</p>
         <a class="link" href="https://www.zachschaffer.com" target="_blank" rel="noopener">zachschaffer.com ↗</a>
       </article>
     </div>
@@ -405,7 +417,7 @@
     <div class="narrow">
       <p class="eyebrow r">Come by</p>
       <h2 class="r">Our door is open.</h2>
-      <p class="lede r">Come to a gathering, bring a friend, bring a snack. If you're a community weaver, artist, or organization dreaming up something together, we'd love to hear from you too.</p>
+      <p class="lede r">Come to a gathering, bring a friend, a snack, or an offering. If you're a community weaver, artist, or organization dreaming up something together, we'd love to hear from you too.</p>
       <a class="email r" href="mailto:sanctuarybklyn@gmail.com">sanctuarybklyn@gmail.com</a>
     </div>
   </section>
