@@ -28,6 +28,7 @@
 
 
 
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Instrument+Serif:ital@0;1&amp;family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,300;1,9..144,400&amp;family=Courier+Prime:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
@@ -175,6 +176,8 @@ a:focus-visible{outline:2px solid #d9734a;outline-offset:3px}
   #story::after{background:radial-gradient(60% 20% at 70% 55%, rgba(122,72,128,.48), transparent 70%)}
   #hosts::after{background:radial-gradient(60% 12% at 25% 32%, rgba(122,72,128,.45), transparent 70%),radial-gradient(60% 12% at 70% 86%, rgba(122,72,128,.45), transparent 70%)}
 }
+/* hide iOS/Android overlay play button on the autoplay video */
+video::-webkit-media-controls,video::-webkit-media-controls-panel,video::-webkit-media-controls-overlay-play-button,video::-webkit-media-controls-start-playback-button{display:none !important;-webkit-appearance:none;opacity:0 !important}
 </style>
 
 <style>body{margin:0;background:#2b2019}</style>
@@ -238,7 +241,7 @@ a:focus-visible{outline:2px solid #d9734a;outline-offset:3px}
     <div class="hb-col" style="display: flex; gap: 7%; align-items: center">
     <figure style="flex: 0 0 27%; margin: 0; width: 27%; position: relative; transform: rotate(-3deg); background: #f6ecdf; padding: 12px 12px 20px; box-shadow: 0 24px 50px -18px rgba(0,0,0,0.6)">
       <span aria-hidden="true" style="position: absolute; top: -12px; left: 30%; width: 90px; height: 26px; background: rgba(143,163,107,0.75); transform: rotate(-4deg)"></span>
-      <video src="/images/v2/house-slow.mp4" poster="/images/v2/house-poster.jpg" autoplay muted loop playsinline aria-label="Slow pan across a living room full of people sitting on cushions and couches during a gathering" style="width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block"></video>
+      <video src="/images/v2/house-slow.mp4" poster="/images/v2/house-poster.jpg" autoplay muted loop playsinline disablepictureinpicture disableremoteplayback preload="auto" aria-label="Slow pan across a living room full of people sitting on cushions and couches during a gathering" style="width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block"></video>
     </figure>
     <div style="flex: 1; min-width: 0; max-width: 640px; display: flex; flex-direction: column; gap: 22px">
       <p style="margin: 0; font-family: 'Courier Prime', monospace; font-weight: 700; font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: #8fa36b">The world is alive</p>
@@ -350,5 +353,5 @@ a:focus-visible{outline:2px solid #d9734a;outline-offset:3px}
     <p style="margin: 100px 0 0; font-family: 'Courier Prime', monospace; font-size: 13px; color: #a593b4">sanctuary · crown heights, brooklyn</p>
   </section>
 </div>
-</body>
+<script>(function(){var v=document.querySelectorAll('video');function go(){v.forEach(function(x){x.muted=true;var p=x.play();if(p&&p.catch)p.catch(function(){});});}go();['touchstart','scroll','click'].forEach(function(e){window.addEventListener(e,go,{once:true,passive:true});});document.addEventListener('visibilitychange',function(){if(!document.hidden)go();});})();</script></body>
 </html>
