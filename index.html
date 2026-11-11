@@ -24,6 +24,7 @@
 
 
 
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Instrument+Serif:ital@0;1&amp;family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,300;1,9..144,400&amp;family=Courier+Prime:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
@@ -146,6 +147,24 @@ a:focus-visible{outline:2px solid #d9734a;outline-offset:3px}
 @media (max-width: 360px){
   header nav{font-size:10px !important;gap:0 9px !important}
   #about [aria-label="Home."]{font-size:35.6vw !important}
+}
+/* extra purple blobs behind the text-only stretches */
+#alive::after,#roots::after,#ways::after,#calendar::after,#story::after,#hosts::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;filter:blur(60px);animation:pb-drift 26s ease-in-out infinite alternate}
+#alive::after{background:radial-gradient(30% 34% at 68% 38%, rgba(122,72,128,.5), transparent 70%),radial-gradient(22% 26% at 30% 88%, rgba(184,140,192,.22), transparent 70%)}
+#roots::after{background:radial-gradient(28% 34% at 82% 62%, rgba(122,72,128,.42), transparent 70%)}
+#ways::after{background:radial-gradient(34% 30% at 22% 82%, rgba(122,72,128,.48), transparent 70%),radial-gradient(22% 26% at 70% 88%, rgba(184,140,192,.2), transparent 70%)}
+#calendar::after{background:radial-gradient(30% 34% at 22% 62%, rgba(122,72,128,.4), transparent 70%)}
+#story::after{background:radial-gradient(30% 36% at 76% 42%, rgba(122,72,128,.48), transparent 70%),radial-gradient(26% 22% at 50% 92%, rgba(184,140,192,.2), transparent 70%)}
+#hosts::after{background:radial-gradient(22% 34% at 14% 58%, rgba(122,72,128,.42), transparent 70%),radial-gradient(22% 34% at 88% 56%, rgba(122,72,128,.42), transparent 70%)}
+@keyframes pb-drift{0%{transform:translate(-3%,2%) scale(1)}100%{transform:translate(3%,-2%) scale(1.1)}}
+@media (prefers-reduced-motion: reduce){#alive::after,#roots::after,#ways::after,#calendar::after,#story::after,#hosts::after{animation:none}}
+@media (max-width: 760px){
+  #alive::after{background:radial-gradient(60% 18% at 70% 70%, rgba(122,72,128,.5), transparent 70%),radial-gradient(50% 12% at 25% 94%, rgba(184,140,192,.22), transparent 70%)}
+  #roots::after{background:radial-gradient(60% 22% at 75% 72%, rgba(122,72,128,.45), transparent 70%)}
+  #ways::after{background:radial-gradient(60% 14% at 25% 22%, rgba(122,72,128,.45), transparent 70%),radial-gradient(60% 16% at 70% 82%, rgba(122,72,128,.42), transparent 70%)}
+  #calendar::after{background:radial-gradient(60% 20% at 30% 34%, rgba(122,72,128,.4), transparent 70%)}
+  #story::after{background:radial-gradient(60% 20% at 70% 55%, rgba(122,72,128,.48), transparent 70%)}
+  #hosts::after{background:radial-gradient(60% 12% at 25% 32%, rgba(122,72,128,.45), transparent 70%),radial-gradient(60% 12% at 70% 86%, rgba(122,72,128,.45), transparent 70%)}
 }
 </style>
 
