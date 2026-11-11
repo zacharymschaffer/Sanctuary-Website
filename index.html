@@ -29,6 +29,7 @@
 
 
 
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Instrument+Serif:ital@0;1&amp;family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,300;1,9..144,400&amp;family=Courier+Prime:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
@@ -178,6 +179,24 @@ a:focus-visible{outline:2px solid #d9734a;outline-offset:3px}
 }
 /* hide iOS/Android overlay play button on the autoplay video */
 video::-webkit-media-controls,video::-webkit-media-controls-panel,video::-webkit-media-controls-overlay-play-button,video::-webkit-media-controls-start-playback-button{display:none !important;-webkit-appearance:none;opacity:0 !important}
+/* tighter gaps between sections */
+@media (min-width: 761px){
+  section#top:not(#z){padding-bottom:40px !important}
+  section#about:not(#z){padding-top:55px !important}
+  section#alive:not(#z){padding-bottom:40px !important}
+  section#roots:not(#z){padding-top:52px !important}
+  section#calendar:not(#z){padding-bottom:40px !important}
+  section#story:not(#z){padding-top:50px !important;padding-bottom:40px !important}
+  section#hosts:not(#z){padding-top:52px !important;padding-bottom:40px !important}
+  section#door:not(#z){padding-top:55px !important}
+}
+@media (max-width: 760px){
+  section#alive:not(#z){padding-top:34px !important}
+  section#calendar:not(#z){padding-bottom:28px !important}
+  section#story:not(#z){padding-top:28px !important}
+  section#hosts:not(#z){padding-bottom:28px !important}
+  section#door:not(#z){padding-top:32px !important}
+}
 </style>
 
 <style>body{margin:0;background:#2b2019}</style>
