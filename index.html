@@ -20,475 +20,286 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Lora:ital,wght@0,400;1,400&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #2b2019;
-      --bg-deep: #211812;
-      --card: rgba(30,20,14,0.42);
-      --gold: #e6a94a;
-      --accent: #d9734a;
-      --text: #f6ecdf;
-      --text-muted: #d6c3ab;
-      --text-faint: #a48d73;
-      --divider: rgba(246,236,223,0.14);
-      --glow-a: rgba(217,115,74,0.16);
-      --glow-b: rgba(143,163,107,0.12);
-      --photo-tint: rgba(43,32,25,0.2);
-      --band: rgba(28,18,12,0.5);
-    }
+  
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Instrument+Serif:ital@0;1&amp;family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,300;1,9..144,400&amp;family=Courier+Prime:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#2b2019}
+a{color:#e6a94a}a:hover{color:#f6ecdf}
+a:focus-visible{outline:2px solid #d9734a;outline-offset:3px}
+.hb-glow{position:relative;isolation:isolate;overflow:hidden}
+.hb-glow::before{content:"";position:absolute;inset:-25%;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(38% 45% at 18% 22%, rgba(217,115,74,0.55), transparent 70%),
+    radial-gradient(40% 50% at 82% 20%, rgba(143,163,107,0.50), transparent 70%),
+    radial-gradient(45% 45% at 72% 82%, rgba(230,169,74,0.42), transparent 70%),
+    radial-gradient(42% 48% at 22% 78%, rgba(122,72,128,0.50), transparent 70%),
+    radial-gradient(30% 35% at 50% 50%, rgba(176,92,64,0.30), transparent 70%);
+  filter:blur(50px);animation:hb-drift 36s ease-in-out infinite alternate}
+.hb-glow.hb-soft::before{opacity:.55}
+.hb-glow.hb-dim{background:#1e150f}
+.hb-glow.hb-dim::before{opacity:.28}
+.hb-glowtext{background:radial-gradient(40% 70% at 20% 40%, rgba(217,115,74,0.6), transparent 70%),radial-gradient(40% 70% at 60% 30%, rgba(143,163,107,0.5), transparent 70%),radial-gradient(40% 70% at 85% 70%, rgba(122,72,128,0.65), transparent 70%),rgba(246,236,223,0.07);background-size:140% 140%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:hb-textdrift 30s ease-in-out infinite alternate}
+@keyframes hb-textdrift{0%{background-position:0% 30%}100%{background-position:100% 70%}}
+@media (prefers-reduced-motion: reduce){.hb-glowtext{animation:none}}
+@keyframes hb-drift{0%{transform:translate(0,0) scale(1) rotate(0deg)}50%{transform:translate(-5%,4%) scale(1.12) rotate(10deg)}100%{transform:translate(4%,-4%) scale(1.06) rotate(-8deg)}}
+@media (prefers-reduced-motion: reduce){.hb-glow::before{animation:none}}
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-    body {
-      --font-d: 'Cormorant Garamond', Georgia, serif;
-      --font-body: 'Lora', Georgia, serif;
-      --font-ui: 'Work Sans', system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--font-body);
-      font-size: clamp(1rem, 0.95rem + 0.25vw, 1.1rem);
-      line-height: 1.75;
-      overflow-x: hidden;
-    }
-    a { color: var(--gold); text-decoration: none; transition: opacity 180ms; }
-    a:hover { opacity: 0.75; }
-    img { display: block; max-width: 100%; }
+@media (max-width: 760px){
+  .hb-col{flex-direction:column !important;align-items:stretch !important}
+  .hb-col > *{width:auto !important;max-width:100% !important;margin-left:0 !important;margin-right:0 !important;transform:none !important}
+  .hb-giant{font-size:24vw !important}
+  .hb-word{font-size:21vw !important}
+  .hb-stamp{display:none !important}
+  .hb-ring{font-size:5.4vw !important}
+}
+.wt-track{display:flex;gap:56px;width:max-content;animation:wt-scroll 70s linear infinite}
+@keyframes wt-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion: reduce){.wt-track{animation:none}}
+.w-clip{-webkit-background-clip:text;background-clip:text;color:transparent;background-repeat:no-repeat;background-size:cover;background-position:50% 30%}
+.f-gblonde{background-image:url(/images/v2/face-guitar-blonde-flip.jpg);background-position:50% 25%}
+.f-chloestage{background-image:url(/images/v2/face-chloe-stage.jpg);background-position:80% 30%}
+.f-eyes{background-image:url(/images/v2/e-eyes.jpg)}
+.f-poetwide{background-image:url(/images/v2/e-poet-wide.jpg);background-position:50% 40%}
 
-    .glow {
-      position: fixed; inset: 0; pointer-events: none; z-index: 0;
-      background:
-        radial-gradient(ellipse 60% 50% at 20% 30%, var(--glow-a) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 60% at 80% 70%, var(--glow-b) 0%, transparent 60%);
-    }
-    main, header, footer { position: relative; z-index: 1; }
+/* blended: keep each block's glow, but feather the edges so blocks melt into each other */
+.hb-glow{overflow:visible}
+.hb-glow::before{inset:-30% -20%;-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 28%,#000 72%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0%,#000 28%,#000 72%,transparent 100%)}
+.hb-glow.hb-dim{background:linear-gradient(to bottom,rgba(30,21,15,0) 0%,rgba(30,21,15,.9) 22%,rgba(30,21,15,.9) 78%,rgba(30,21,15,0) 100%)}
+.lw{position:relative;isolation:isolate;overflow-x:clip}
+.lw::before{opacity:.55;content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(30% 6% at 15% 4%, rgba(217,115,74,0.55), transparent 70%),
+    radial-gradient(30% 6% at 85% 12%, rgba(143,163,107,0.45), transparent 70%),
+    radial-gradient(35% 7% at 20% 26%, rgba(122,72,128,0.55), transparent 70%),
+    radial-gradient(30% 6% at 80% 38%, rgba(230,169,74,0.40), transparent 70%),
+    radial-gradient(35% 7% at 25% 52%, rgba(217,115,74,0.45), transparent 70%),
+    radial-gradient(30% 6% at 78% 64%, rgba(122,72,128,0.55), transparent 70%),
+    radial-gradient(35% 7% at 22% 78%, rgba(143,163,107,0.40), transparent 70%),
+    linear-gradient(to bottom, #2b2019 0%, #2a1e17 40%, #2b2019 70%, #2a1b3a 90%, #2a1a45 100%);
+  background-size:100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,100% 100%;
+  filter:blur(40px);background-size:140% 100%;animation:lw-drift 18s ease-in-out infinite alternate, lw-pan 24s ease-in-out infinite alternate}
+.lw::after{opacity:.6;content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(25% 5% at 50% 10%, rgba(176,92,64,0.35), transparent 70%),radial-gradient(25% 5% at 60% 45%, rgba(184,140,192,0.30), transparent 70%),radial-gradient(25% 5% at 40% 85%, rgba(230,169,74,0.30), transparent 70%);
+  filter:blur(50px);animation:lw-drift2 14s ease-in-out infinite alternate}
+@keyframes lw-drift{0%{transform:translate(-8%,0) scale(1)}50%{transform:translate(4%,1%) scale(1.08)}100%{transform:translate(9%,-1%) scale(1.03)}}
+@keyframes lw-pan{0%{background-position:0% 0%;filter:blur(40px) hue-rotate(0deg)}100%{background-position:100% 0%;filter:blur(40px) hue-rotate(-18deg)}}
+@keyframes lw-drift2{0%{transform:translate(-14%,-0.5%)}100%{transform:translate(14%,1.5%)}}
+@media (prefers-reduced-motion: reduce){.lw::before,.lw::after{opacity:.6;animation:none}}
 
-    /* Alternating section bands (full-bleed) */
-    section.band {
-      background: var(--band);
-      box-shadow: 0 0 0 100vmax var(--band);
-      clip-path: inset(0 -100vmax);
-    }
+/* ---- phone layout: only applies under 760px wide; desktop is untouched ---- */
+@media (max-width: 760px){
+  .hb-col > *{flex:0 0 auto !important}
+  section:not(#what):not(#top){padding-top:56px !important;padding-bottom:56px !important}
+  #top{padding-top:20px !important;padding-bottom:40px !important}
+  #door{padding-bottom:32px !important}
+  #calendar{width:auto !important;height:auto !important}
+  #calendar ul{width:auto !important}
+  #ways h2{font-size:12.5vw !important;white-space:normal !important}
+  #ways [style*="clamp(60px, 8.4vw, 108px)"]{font-size:14vw !important}
+  #ways [style*="margin-left: 80px"]{margin-left:7vw !important}
+  #ways [style*="margin-left: 150px"]{margin-left:14vw !important}
+  #ways [style*="0 26px 150px"]{margin-left:14vw !important}
+  #story h2{font-size:13vw !important}
+  #hosts .hb-col > *{text-align:left !important}
+  #roots h2{font-size:11vw !important}
+  #about .hb-glowtext{font-size:8vw !important}
+  #calendar [style*="rotate"]{transform:rotate(-1.5deg) !important;margin-right:3% !important}
+  .hb-col > figure{max-width:80% !important;margin:0 auto !important}
+  #roots .hb-col > div:first-child{max-width:86% !important;margin:0 auto !important}
+  header nav{flex-wrap:nowrap !important;gap:0 14px !important;font-size:11.5px !important;white-space:nowrap}
+  #about h2 > span:nth-child(2){flex-wrap:wrap !important}
+  #about h2 > span:nth-child(2) > span:first-child{flex-basis:100% !important;font-size:13vw !important;line-height:0.7 !important}
+  #about [aria-label="Home."]{font-size:35vw !important}
+  a[href="#about"]{display:none !important}
+  #top{padding-bottom:8px !important}
+  #about{padding-top:28px !important}
+  .hb-col > figure{margin:0 auto 34px !important}
+  #calendar h2{line-height:1.02 !important}
+  #hosts h2{line-height:1 !important}
+  .wt-track{font-size:17px !important;gap:24px !important;animation-duration:38s !important}
+  .wt-track > span{display:inline-flex}
+  #calendar{display:flex !important;flex-direction:column !important}
+  #calendar > .hb-stamp{display:block !important;order:9;position:relative !important;top:auto !important;right:auto !important;width:56% !important;margin:-60px 4% 0 auto !important;transform:rotate(5deg) !important}
+}
+@media (max-width: 360px){
+  header nav{font-size:10px !important;gap:0 9px !important}
+}
+</style>
 
-    /* Earth: slow, drifting multi-color gradient */
-    .glow {
-      inset: -15%;
-      background:
-        radial-gradient(38% 45% at 18% 22%, rgba(217,115,74,0.55), transparent 70%),
-        radial-gradient(40% 50% at 82% 20%, rgba(143,163,107,0.50), transparent 70%),
-        radial-gradient(45% 45% at 72% 82%, rgba(230,169,74,0.42), transparent 70%),
-        radial-gradient(42% 48% at 22% 78%, rgba(122,72,128,0.50), transparent 70%),
-        radial-gradient(30% 35% at 50% 50%, rgba(176,92,64,0.30), transparent 70%);
-      filter: blur(50px);
-      animation: drift 36s ease-in-out infinite alternate;
-    }
-    @keyframes drift {
-      0%   { transform: translate(0, 0) scale(1) rotate(0deg); }
-      50%  { transform: translate(-5%, 4%) scale(1.12) rotate(10deg); }
-      100% { transform: translate(4%, -4%) scale(1.06) rotate(-8deg); }
-    }
-    @media (prefers-reduced-motion: reduce) { .glow { animation: none; } }
-
-    /* ── Nav ───────────────────────────────────────────────── */
-    .nav {
-      position: sticky; top: 0; z-index: 2;
-      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
-      padding: 0.9rem clamp(1rem, 4vw, 2.5rem);
-      background: color-mix(in srgb, var(--bg) 82%, transparent);
-      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--divider);
-    }
-    .brand { display: flex; align-items: center; gap: 0.55rem; font-family: var(--font-d); font-style: italic; font-size: 1.35rem; color: var(--gold); }
-    .brand img { width: 26px; height: 26px; }
-    .nav ul { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.2rem 1.4rem; list-style: none; }
-    .nav ul a { font-family: var(--font-ui); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-muted); }
-    .nav ul a { transition: color 180ms; }
-    .nav ul a:hover, .nav ul a:focus-visible { color: var(--gold); opacity: 1; }
-    @media (max-width: 640px) { .nav ul { display: none; } }
-
-    /* ── Layout ────────────────────────────────────────────── */
-    .wrap { max-width: 1080px; margin-inline: auto; padding-inline: clamp(1rem, 5vw, 2.5rem); }
-    .narrow { max-width: 640px; margin-inline: auto; }
-    section { padding-block: clamp(2.25rem, 4.5vw, 3.75rem); }
-    .center { text-align: center; }
-
-    .eyebrow {
-      font-family: var(--font-ui); font-size: clamp(0.65rem, 0.6rem + 0.2vw, 0.75rem);
-      font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent);
-      margin-bottom: 1rem;
-    }
-    h2 {
-      font-family: var(--font-d); font-weight: 300; font-style: italic;
-      font-size: clamp(2.2rem, 1.4rem + 3vw, 3.6rem); line-height: 1.08; color: var(--gold);
-      margin-bottom: 1.5rem; text-wrap: balance;
-    }
-    h3 { font-family: var(--font-d); font-weight: 400; font-style: italic; font-size: 1.6rem; line-height: 1.2; color: var(--text); margin-bottom: 0.6rem; }
-    p + p { margin-top: 1.1rem; }
-    .lede { font-size: clamp(1.05rem, 0.95rem + 0.45vw, 1.2rem); color: var(--text-muted); line-height: 1.9; }
-    .muted { color: var(--text-muted); }
-    .rule { width: 32px; height: 1px; background: var(--gold); opacity: 0.45; margin: 2.5rem auto; }
-
-    /* ── Hero ──────────────────────────────────────────────── */
-    .hero { padding-top: clamp(4.5rem, 11vw, 8rem); padding-bottom: clamp(1.5rem, 3vw, 2.25rem); text-align: center; }
-    .hero-name {
-      font-family: var(--font-d); font-weight: 300; font-style: italic;
-      font-size: clamp(4rem, 2rem + 8vw, 9rem); line-height: 1; color: var(--gold); margin-bottom: 1.4rem;
-    }
-    .hero-line { font-family: var(--font-d); font-weight: 300; font-style: italic; font-size: clamp(1.4rem, 1rem + 1.5vw, 2.1rem); line-height: 1.35; color: var(--text); text-wrap: balance; }
-    .hero-sub { margin: 1.2rem auto 0; max-width: 44ch; color: var(--text-muted); }
-    .hero-cta { margin-top: 2.4rem; display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center; }
-    .btn {
-      display: inline-block; font-family: var(--font-ui); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
-      padding: 0.85rem 1.5rem; border-radius: 999px; border: 1px solid var(--gold); color: var(--gold);
-    }
-    .btn.solid { background: var(--gold); color: var(--bg-deep); }
-
-    /* Arch photo */
-    .arch-photo {
-      width: min(560px, 100%); margin: clamp(2.5rem, 6vw, 4rem) auto 0;
-      aspect-ratio: 1100 / 1000; border-radius: 999px 999px 18px 18px; overflow: hidden; position: relative;
-      box-shadow: 0 0 0 1px var(--divider), 0 30px 80px -30px rgba(0,0,0,0.6);
-    }
-    .arch-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 60%; }
-    .arch-photo::after { content: ''; position: absolute; inset: 0; background: var(--photo-tint); pointer-events: none; }
-    .caption { margin-top: 0.9rem; font-family: var(--font-ui); font-size: 0.72rem; letter-spacing: 0.1em; color: var(--text-faint); text-align: center; }
-
-    /* ── Living world ──────────────────────────────────────── */
-    .relations {
-      display: flex; flex-wrap: wrap; justify-content: center; gap: 0.35rem 1rem; list-style: none; margin: 2rem 0 0;
-    }
-    .relations + .relations { margin-top: 0.4rem; }
-    .relations li { font-family: var(--font-d); font-style: italic; font-weight: 300; font-size: clamp(1.15rem, 0.95rem + 0.7vw, 1.45rem); color: var(--text); }
-    .relations li:not(:last-child)::after { content: ' ·'; color: var(--gold); font-style: normal; }
-
-    /* ── Ways ──────────────────────────────────────────────── */
-    .ways { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 3rem; }
-    .way { flex: 1 1 170px; max-width: 220px;
-      background: var(--card); border: 1.5px solid color-mix(in srgb, var(--gold) 55%, transparent);
-      border-radius: 140px 140px 14px 14px; padding: 3rem 1.4rem 1.6rem; text-align: center;
-    }
-    @media (max-width: 640px) { .way { flex-basis: 140px; padding: 2.4rem 0.9rem 1.2rem; } .way h3 { font-size: 1.3rem !important; } }
-    .way h3 { color: var(--gold); font-size: 1.5rem; }
-    .way p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; }
-
-    /* ── Gatherings ────────────────────────────────────────── */
-    .gatherings { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin-top: 3rem; }
-    .gathering {
-      background: var(--card); border: 1px solid var(--divider); border-radius: 16px; padding: 1.8rem 1.6rem;
-      display: flex; flex-direction: column;
-    }
-    .gathering .kind { font-family: var(--font-ui); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.7rem; }
-    .gathering p { font-size: 0.97rem; color: var(--text-muted); line-height: 1.75; }
-    .gathering .seen { margin-top: auto; padding-top: 1.1rem; font-family: var(--font-ui); font-size: 0.75rem; letter-spacing: 0.04em; color: var(--text-faint); }
-    .gathering .seen em { font-family: var(--font-body); color: var(--text); font-size: 0.85rem; letter-spacing: 0; }
-
-    .notice {
-      margin-top: 2.5rem; padding: 1.6rem; border: 1px dashed color-mix(in srgb, var(--gold) 45%, transparent); border-radius: 16px; text-align: center;
-    }
-    .notice p { color: var(--text-muted); }
-
-    /* ── Story ─────────────────────────────────────────────── */
-    .pull { font-family: var(--font-d); font-style: italic; font-weight: 300; font-size: clamp(1.6rem, 1.1rem + 2vw, 2.4rem); line-height: 1.3; color: var(--gold); margin: 2.5rem 0; text-align: center; text-wrap: balance; }
-
-    /* ── Hosts ─────────────────────────────────────────────── */
-    .hosts { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
-    .host { background: var(--card); border: 1px solid var(--divider); border-radius: 18px; padding: 2rem 1.8rem; }
-    .portrait img { width: 100%; height: 100%; object-fit: cover; }
-    .portrait {
-      width: 150px; height: 180px; border-radius: 999px 999px 10px 10px; margin-bottom: 1.4rem; overflow: hidden;
-      display: grid; place-items: center;
-      background: linear-gradient(160deg, color-mix(in srgb, var(--accent) 30%, transparent), color-mix(in srgb, var(--gold) 18%, transparent));
-      font-family: var(--font-d); font-style: italic; font-size: 2.6rem; color: var(--gold);
-      border: 1px solid var(--divider);
-    }
-    .host .role { font-family: var(--font-ui); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
-    .host p { font-size: 0.97rem; color: var(--text-muted); }
-    .host h3 { color: #9a6db8; }
-    .host .ig { color: #9a6db8; }
-    .host .link .arrow { color: #9a6db8; }
-    .host .links { display: flex; align-items: center; gap: 1rem; margin-top: 1.2rem; }
-    .host .ig { display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; border: 1px solid color-mix(in srgb, var(--gold) 50%, transparent); }
-    .host .link { display: inline-block; font-family: var(--font-ui); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; }
-
-    /* ── Come ──────────────────────────────────────────────── */
-    .come { padding-top: clamp(3rem, 6vw, 4.5rem); }
-
-    /* Closing section: earth fades slowly into deep Sanctuary purple */
-    #hosts { padding-bottom: clamp(1.5rem, 3vw, 2.5rem); }
-    .dusk {
-      position: relative; overflow: hidden; isolation: isolate;
-      background: linear-gradient(to bottom,
-        rgba(28,18,12,0.5) 0%,
-        rgba(34,21,40,0.7) 22%,
-        rgba(40,25,62,0.85) 45%,
-        #2a1a45 70%,
-        #2a1a45 100%);
-      --gold: #f2b84a; --accent: #d97ab8;
-      --text-muted: #d4c4dc; --text-faint: #a593b4;
-    }
-    .dusk::before {
-      content: ''; position: absolute; inset: -35%; z-index: -1; pointer-events: none;
-      background:
-        radial-gradient(35% 40% at 20% 55%, rgba(250,47,181,0.14), transparent 70%),
-        radial-gradient(40% 45% at 80% 50%, rgba(110,62,170,0.28), transparent 70%),
-        radial-gradient(35% 40% at 70% 85%, rgba(255,194,60,0.07), transparent 70%),
-        radial-gradient(30% 30% at 45% 70%, rgba(150,60,140,0.12), transparent 70%);
-      filter: blur(60px);
-      -webkit-mask-image: linear-gradient(to bottom, transparent 30%, #000 60%);
-              mask-image: linear-gradient(to bottom, transparent 30%, #000 60%);
-      animation: drift 36s ease-in-out infinite alternate;
-    }
-    /* Top of page: a soft purple dawn that fades into the earth tones */
-    .top-dusk {
-      position: absolute; top: 0; left: 0; right: 0; height: 1100px; z-index: 0; pointer-events: none; overflow: hidden;
-      -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 35%, transparent 100%);
-              mask-image: linear-gradient(to bottom, #000 0%, #000 35%, transparent 100%);
-    }
-    .top-dusk::before {
-      content: ''; position: absolute; inset: -30%;
-      background:
-        radial-gradient(38% 34% at 22% 30%, rgba(110,62,170,0.30), transparent 70%),
-        radial-gradient(38% 34% at 80% 28%, rgba(120,66,180,0.32), transparent 70%),
-        radial-gradient(30% 28% at 62% 40%, rgba(160,60,150,0.16), transparent 70%),
-        radial-gradient(70% 30% at 50% 18%, rgba(63,37,107,0.50), transparent 75%);
-      filter: blur(60px);
-      animation: drift-soft 40s ease-in-out infinite alternate;
-    }
-    @keyframes drift-soft { 0% { transform: translateX(-3%); } 100% { transform: translateX(3%); } }
-    @media (prefers-reduced-motion: reduce) { .top-dusk::before { animation: none; } }
-    @media (prefers-reduced-motion: reduce) { .dusk::before { animation: none; } }
-    .email { font-family: var(--font-d); font-style: italic; font-size: clamp(1.4rem, 1rem + 1.6vw, 2.1rem); margin-top: 1.5rem; display: inline-block; }
-
-    .come-wa { margin-top: 2rem; }
-    .come-note { margin-top: 0.8rem; font-family: var(--font-ui); font-size: 0.78rem; letter-spacing: 0.04em; color: var(--text-faint); }
-    footer { padding: 3rem 1rem 4rem; text-align: center; font-family: var(--font-ui); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-faint); }
-
-    /* ── Reveal ────────────────────────────────────────────── */
-    .r { opacity: 0; transform: translateY(14px); transition: opacity 0.85s cubic-bezier(0.16,1,0.3,1), transform 0.85s cubic-bezier(0.16,1,0.3,1); }
-    .r.on { opacity: 1; transform: none; }
-    .d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.2s; } .d3 { transition-delay: 0.3s; } .d4 { transition-delay: 0.4s; }
-    @media (prefers-reduced-motion: reduce) { .r { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
-  </style>
+<style>body{margin:0;background:#2b2019}</style>
 </head>
 <body>
+<div class="lw" style="background: #2b2019; color: #f6ecdf; font-family: 'Fraunces', Georgia, serif; font-size: 18px; line-height: 1.6; overflow: hidden; min-width: 0">
 
-<div class="glow" aria-hidden="true"></div>
-<div class="top-dusk" aria-hidden="true"></div>
+  <header style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 16px max(20px, 3vw); font-family: 'Courier Prime', monospace; font-size: 14px">
+    <a href="#top" style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: #f6ecdf"><img src="/images/v2/logo.svg" alt="" style="width: 26px; height: 26px">sanctuary / brooklyn</a>
+    <nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 4px 22px">
+      <a href="#calendar" style="color: #d6c3ab">what's on</a>
+      <a href="#story" style="color: #d6c3ab">how it started</a>
+      <a href="#hosts" style="color: #d6c3ab">who's home</a>
+      <a href="#door" style="color: #e6a94a">come by</a>
+    </nav>
+  </header>
 
-<header class="nav">
-  <a class="brand" href="#top"><img src="/favicon.svg" alt="">Sanctuary</a>
-  <nav aria-label="Sections">
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#gatherings">Gatherings</a></li>
-      <li><a href="#story">Our Story</a></li>
-      <li><a href="#hosts">Hosts</a></li>
-      <li><a href="#come">Come By</a></li>
-    </ul>
-  </nav>
-</header>
-
-<main id="top">
-
-  <!-- HERO -->
-  <section class="hero wrap">
-    <p class="eyebrow r">Crown Heights, Brooklyn</p>
-    <h1 class="hero-name r d1">Sanctuary</h1>
-    <p class="hero-line r d2">A living room for the living world.</p>
-    <p class="hero-sub r d3">A spiritual home in Brooklyn. We gather through story, song, movement, and food to come back into relationship with ourselves, with each other, and with the world around us.</p>
-    <div class="hero-cta r d4">
-      <a class="btn solid" href="#come">Come to a gathering</a>
-      <a class="btn" href="#about">What is this place?</a>
+  <!-- hero: poster-scale condensed type, a taped print set at an angle -->
+  <section id="top" class="hb-glow" style="position: relative; padding: 40px max(20px, 3vw) 78px">
+    <h1 class="hb-word" aria-label="Sanctuary" style="margin: 0; display: flex; align-items: baseline; gap: 0.01em; white-space: nowrap; font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; font-size: clamp(100px, 18vw, 250px); line-height: 0.85; letter-spacing: -0.02em; color: #e6a94a"><svg viewBox="0 0 64 64" role="img" aria-label="S" style="flex: none; width: 0.98em; height: 0.98em; margin-right: -0.1em; transform: translateY(0.1em) skewX(-10deg); overflow: visible"><path d="M7 30 A25 25 0 0 1 57 30 V56 Q57 59 54 59 H10 Q7 59 7 56 Z" fill="#3f256b"/><path d="M13 30 A19 19 0 0 1 51 30 V59 H13 Z" fill="none" stroke="#e6a94a" stroke-width="1.6" opacity=".7"/><text x="29.5" y="53" text-anchor="middle" font-family="'Instrument Serif', Georgia, serif" font-style="italic" font-size="44" fill="#e6a94a">S</text></svg>anctuary</h1>
+    <p style="margin: 18px 0 0 0.6vw; font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 300; font-size: clamp(28px, 2.8vw, 42px); line-height: 1.1; color: #f6ecdf">A living room for the living world.</p>
+    <div class="hb-col" style="display: flex; gap: 6%; align-items: center; margin-top: 36px">
+      <div style="flex: 0 1 900px; max-width: 900px; display: flex; flex-direction: column; gap: 34px">
+        <p style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(34px, 3.5vw, 52px); line-height: 1.12; color: #f6ecdf">A <em style="color: #e6a94a; font-size: 1.25em; line-height: 1">spiritual home</em> in Brooklyn. We gather through story, song, movement, and food to come back into relationship with ourselves, with each other, and with <span style="color: #8fa36b">the world around us</span>.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 14px 28px; align-items: center">
+          <a href="#door" style="font-family: 'Courier Prime', monospace; font-weight: 700; font-size: 15px; color: #2b2019; background: #e6a94a; padding: 12px 18px; text-decoration: none">→ come to a gathering</a>
+          <a href="#about" style="font-family: 'Courier Prime', monospace; font-weight: 700; font-size: 15px; text-underline-offset: 6px">what is this place?</a>
+        </div>
+      </div>
+      
     </div>
-    <figure class="r">
-      <div class="arch-photo"><img src="/images/gathering.jpg" alt="Neighbors sitting in a circle on cushions and couches in Sanctuary's living room, under soft pink light"></div>
-      <figcaption class="caption">A Rosh Hashanah gathering</figcaption>
+  </section>
+
+  <!-- paper band, torn edge: what is sanctuary -->
+  <!-- what is sanctuary: one glowing ghost line, then the HOME window -->
+  <section id="about" class="hb-glow hb-dim" style="padding: 65px max(20px, 3vw) 72px">
+    <p style="margin: 0 0 20px; font-family: 'Courier Prime', monospace; font-weight: 700; font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: #d9734a">What is Sanctuary</p>
+    <h2 style="margin: 10px 0 0; font-weight: 400">
+      <span class="hb-glowtext" style="display: block; font-family: 'Anton', Impact, sans-serif; font-weight: 400; text-transform: uppercase; font-size: min(108px, calc((100vw - 2 * max(20px, 3vw)) / 11)); line-height: 0.9; white-space: nowrap">Not a community center.</span>
+      <span style="display: flex; align-items: baseline; gap: 0.1em; white-space: nowrap; margin-top: 10px"><span style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: min(160px, calc((100vw - 2 * max(20px, 3vw)) / 7.5)); line-height: 0.86; color: #e6a94a">a</span><span aria-label="Home." style="font-family: 'Anton', Impact, sans-serif; font-weight: 400; text-transform: uppercase; font-size: min(470px, calc((100vw - 2 * max(20px, 3vw)) / 2.56)); line-height: 0.86; color: #f6ecdf"><span class="w-clip f-gblonde">H</span><span class="w-clip f-chloestage">O</span><span class="w-clip f-eyes">M</span><span class="w-clip f-poetwide">E</span><span style="color: #e6a94a">.</span></span></span>
+    </h2>
+  </section>
+
+
+  <!-- what it is: one gold line, then everything we host as a slow ticker -->
+  <section id="what" class="hb-glow" style="padding: 34px 0 0">
+    <p style="position: relative; margin: 0 max(20px, 3vw) 0 max(20px, 3vw); text-align: center; font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: clamp(28px, 3vw, 40px); line-height: 1.05; color: #e6a94a">A house in Crown Heights, open to all who come with care.</p>
+    <div style="position: relative; margin-top: 26px; padding: 16px 0; border-top: 1px solid rgba(246,236,223,0.18); border-bottom: 1px solid rgba(246,236,223,0.18); overflow: hidden" role="img" aria-label="Meditations, music jams, Shabbat tables, holiday events, salons, poetry performances, writing workshops, prayer labs, Emerald Podcast listening parties, BBQs, cuddle puddles, and picnics with the trees">
+      <div class="wt-track" aria-hidden="true" style="font-family: 'Anton', Impact, sans-serif; font-size: clamp(24px, 2.4vw, 32px); line-height: 1; text-transform: uppercase; color: #d6c3ab; white-space: nowrap">
+        <span>Meditations</span><span style="color: #d9734a">✳</span><span>Music jams</span><span style="color: #d9734a">✳</span><span>Shabbat tables</span><span style="color: #d9734a">✳</span><span>Holiday events</span><span style="color: #d9734a">✳</span><span>Salons</span><span style="color: #d9734a">✳</span><span>Poetry performances</span><span style="color: #d9734a">✳</span><span>Writing workshops</span><span style="color: #d9734a">✳</span><span>Prayer labs</span><span style="color: #d9734a">✳</span><span>Podcast listening parties</span><span style="color: #d9734a">✳</span><span>BBQs</span><span style="color: #d9734a">✳</span><span>Cuddle puddles</span><span style="color: #d9734a">✳</span><span>Picnics with the trees</span><span style="color: #d9734a">✳</span>
+        <span>Meditations</span><span style="color: #d9734a">✳</span><span>Music jams</span><span style="color: #d9734a">✳</span><span>Shabbat tables</span><span style="color: #d9734a">✳</span><span>Holiday events</span><span style="color: #d9734a">✳</span><span>Salons</span><span style="color: #d9734a">✳</span><span>Poetry performances</span><span style="color: #d9734a">✳</span><span>Writing workshops</span><span style="color: #d9734a">✳</span><span>Prayer labs</span><span style="color: #d9734a">✳</span><span>Podcast listening parties</span><span style="color: #d9734a">✳</span><span>BBQs</span><span style="color: #d9734a">✳</span><span>Cuddle puddles</span><span style="color: #d9734a">✳</span><span>Picnics with the trees</span><span style="color: #d9734a">✳</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- house is alive: understated, small, lots of room. A breath after the loud bits. -->
+  
+
+  <!-- roots: a quiet statement on the right, after the big list -->
+  <section class="hb-glow hb-dim" style="padding: 65px max(20px, 3vw) 65px">
+    <div class="hb-col" style="display: flex; gap: 7%; align-items: center">
+    <figure style="flex: 0 0 27%; margin: 0; width: 27%; position: relative; transform: rotate(-3deg); background: #f6ecdf; padding: 12px 12px 20px; box-shadow: 0 24px 50px -18px rgba(0,0,0,0.6)">
+      <span aria-hidden="true" style="position: absolute; top: -12px; left: 30%; width: 90px; height: 26px; background: rgba(143,163,107,0.75); transform: rotate(-4deg)"></span>
+      <video src="/images/v2/house-slow.mp4" poster="/images/v2/house-poster.jpg" autoplay muted loop playsinline aria-label="Slow pan across a living room full of people sitting on cushions and couches during a gathering" style="width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block"></video>
     </figure>
+    <div style="flex: 1; min-width: 0; max-width: 640px; display: flex; flex-direction: column; gap: 22px">
+      <p style="margin: 0; font-family: 'Courier Prime', monospace; font-weight: 700; font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: #8fa36b">The world is alive</p>
+      <h2 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: clamp(40px, 4.4vw, 64px); line-height: 1.12">The house is alive.<br><em style="font-weight: 300; color: #8fa36b">So is everything around it.</em></h2>
+      <p style="margin: 0; color: #d6c3ab">There's an old word for how we try to live: <em>animism</em>. It simply means treating the world as alive and worth being in relationship with. Not as a backdrop, not as a resource, but as kin. You don't need to believe anything in particular to walk in. You just need a desire to connect to something deeper within or around yourself.</p>
+    </div>
+    </div>
+    <p aria-label="What we are in relationship with" style="margin: 50px 0 0; text-align: center; text-wrap: balance; font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: clamp(30px, 4.3vw, 56px); line-height: 1.12; color: #6f5a48">Source, <span style="color: #e6a94a">ancestors</span>, elements, plants, <span style="color: #8fa36b">seasons</span>, sound, touch, <span style="color: #b88cc0">spirit</span>, and <span style="color: #f6ecdf">each other.</span></p>
+  </section><section id="roots" class="hb-glow" style="padding: 72px max(20px, 3vw) 46px">
+    <div class="hb-col" style="display: flex; gap: 70px; align-items: center">
+      <div style="flex: 0 0 44%; width: 44%; aspect-ratio: 1000 / 1080; border-radius: 999px 999px 18px 18px; overflow: hidden; box-shadow: 0 0 0 1px rgba(246,236,223,0.18), 0 30px 80px -30px rgba(0,0,0,0.6)"><img src="/images/v2/rh-room.jpg" alt="A full living room seated on floor cushions for Rosh Hashanah" style="width: 100%; height: 100%; object-fit: cover; object-position: 40% 50%; display: block"></div>
+      <div style="flex: 1; min-width: 0; max-width: 680px; display: flex; flex-direction: column">
+      <p style="margin: 0 0 28px; font-family: 'Courier Prime', monospace; font-weight: 700; font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: #d9734a">Our roots</p>
+      <h2 style="margin: 0 0 26px; font-family: 'Anton', Impact, sans-serif; font-weight: 400; font-size: clamp(48px, 5.4vw, 84px); line-height: 1.02; text-transform: uppercase">Rooted in our traditions.<span style="display: block; margin-top: 0.28em; color: #e6a94a">Open to everyone.</span></h2>
+      <p style="margin: 0 0 18px; font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(26px, 2.4vw, 34px); line-height: 1.25">The two friends who live here and host are Black and Jewish, and those lineages run deep in this house, alongside animist, contemplative, and other wisdom traditions we've learned from with gratitude.</p>
+      <p style="margin: 0; color: #d6c3ab">They're where we come from, not a password at the door. Whoever you are and whatever you carry, there's a cushion for you.</p>
+    </div>
+    </div>
   </section>
 
-  <!-- ABOUT -->
-  <section id="about" class="wrap band">
-    <div class="narrow center">
-      <p class="eyebrow r">What is Sanctuary</p>
-      <h2 class="r">Not a community center.<br>A home.</h2>
-      <div class="lede r">
-        <p>Sanctuary is a house in Crown Heights where the door is open to all who come with care. We host gatherings that are spiritual, embodied, and educational: meditations and music jams, Shabbat tables and holiday events, salons, prayer labs, Emerald Podcast listening parties, BBQs, cuddle puddles, and picnics with the trees.</p>
-        <p>Some nights are quiet and deep. Some go until the sun rises. Nearly all of them involve fruit and tea.</p>
-        <p>What ties them together is an intention: to help each other heal, learn, and remember how to belong in this world.</p>
+  <!-- how we gather: title and doors side by side, the intention stepping up to the door -->
+  <section id="ways" class="hb-glow hb-dim" style="padding: 46px max(20px, 3vw) 46px">
+<p style="margin: 0 0 26px; font-family: 'Courier Prime', monospace; font-weight: 700; font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: #d9734a">How we gather</p>
+    <div class="hb-col" style="display: flex; gap: 30px; align-items: stretch">
+      <div aria-label="What ties our gatherings together is an intention: to help each other heal, learn, and remember how to belong in this world." style="flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: flex-start">
+        <h2 style="margin: -6px 0 0; font-family: 'Anton', Impact, sans-serif; font-weight: 400; text-transform: uppercase; line-height: 0.9; font-size: clamp(52px, 6.6vw, 84px); white-space: nowrap">Five doorways in</h2>
+        <p aria-hidden="true" style="margin: 22px 0 0; max-width: 560px; font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 30px; line-height: 1.25; color: #d6c3ab">What ties our gatherings together is an intention: to help each other</p>
+        <p aria-hidden="true" style="margin: auto 0 0; padding-top: 30px"><span style="display: block; margin-left: 0px; padding: 0 0 6px; border-bottom: 1.5px solid #d9734a66; font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: clamp(60px, 8.4vw, 108px); line-height: 0.95; color: #d9734a">heal,</span><span style="display: block; margin-left: 80px; padding: 0 0 6px; border-bottom: 1.5px solid #e6a94a66; font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: clamp(60px, 8.4vw, 108px); line-height: 0.95; color: #e6a94a">learn,</span><span style="display: block; white-space: nowrap; margin-left: 150px; padding: 0 0 6px; border-bottom: 1.5px solid #8fa36b66; font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: clamp(60px, 8.4vw, 108px); line-height: 0.95; color: #8fa36b"><span style="font-size: 0.4em; color: #b88cc0">and </span>remember</span></p>
+        <p aria-hidden="true" style="margin: 14px 0 26px 150px; font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 30px; color: #d6c3ab">how to belong in this world.</p>
       </div>
+      <div aria-hidden="true" style="position: relative; width: 560px; max-width: 100%; aspect-ratio: 560 / 680; flex: none"><div style="position: absolute; left: 0.000%; right: 0.000%; top: 0.000%; bottom: 0; border-radius: 999px 999px 0 0; background: rgba(230,169,74,0.16); box-shadow: inset 0 0 0 1.5px #d9734a55"></div><div style="position: absolute; left: 8.929%; right: 8.929%; top: 11.176%; bottom: 0; border-radius: 999px 999px 0 0; background: rgba(217,115,74,0.22); box-shadow: inset 0 0 0 1.5px #e6a94a55"></div><div style="position: absolute; left: 17.858%; right: 17.858%; top: 22.352%; bottom: 0; border-radius: 999px 999px 0 0; background: rgba(176,92,64,0.30); box-shadow: inset 0 0 0 1.5px #b88cc055"></div><div style="position: absolute; left: 26.787%; right: 26.787%; top: 33.528%; bottom: 0; border-radius: 999px 999px 0 0; background: rgba(122,72,128,0.45); box-shadow: inset 0 0 0 1.5px #8fa36b55"></div><div style="position: absolute; left: 35.716%; right: 35.716%; top: 44.704%; bottom: 0; border-radius: 999px 999px 0 0; background: #1c1220; box-shadow: inset 0 0 0 1.5px #f6ecdf55"></div><div style="position: absolute; left: 35.714%; right: 35.714%; top: 44.706%; bottom: 0; border-radius: 999px 999px 0 0; background: radial-gradient(60% 45% at 50% 35%, rgba(230,169,74,0.55), rgba(122,72,128,0.25) 60%, transparent 85%)"></div><span style="position: absolute; left: 0; right: 0; top: 3.529%; text-align: center; font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 26px; line-height: 1; color: #d9734a">Breaking Bread</span><span style="position: absolute; left: 0; right: 0; top: 14.706%; text-align: center; font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 26px; line-height: 1; color: #e6a94a">Story &amp; Song</span><span style="position: absolute; left: 0; right: 0; top: 25.882%; text-align: center; font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 26px; line-height: 1; color: #b88cc0">Stillness</span><span style="position: absolute; left: 0; right: 0; top: 37.059%; text-align: center; font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 26px; line-height: 1; color: #8fa36b">Mutual Care</span><span style="position: absolute; left: 0; right: 0; top: 58.824%; text-align: center; font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 26px; line-height: 1; color: #f6ecdf">Movement</span></div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 28px; margin-top: 50px; padding-top: 28px; border-top: 1px solid rgba(246,236,223,0.2)">
+      <p style="margin: 0; font-size: 16px; line-height: 1.55; color: #d6c3ab"><strong style="display: block; margin-bottom: 6px; font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; font-size: 28px; color: #d9734a">Breaking Bread</strong>Shared meals, potlucks, and grills. Food finds its way into much of what we do.</p><p style="margin: 0; font-size: 16px; line-height: 1.55; color: #d6c3ab"><strong style="display: block; margin-bottom: 6px; font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; font-size: 28px; color: #e6a94a">Story &amp; Song</strong>Poems, jams, and drum circles, and the stories that remind us who we really are.</p><p style="margin: 0; font-size: 16px; line-height: 1.55; color: #d6c3ab"><strong style="display: block; margin-bottom: 6px; font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; font-size: 28px; color: #b88cc0">Stillness</strong>Meditation, prayer, and ritual: quieter ways of listening to ourselves and to the world.</p><p style="margin: 0; font-size: 16px; line-height: 1.55; color: #d6c3ab"><strong style="display: block; margin-bottom: 6px; font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; font-size: 28px; color: #8fa36b">Mutual Care</strong>Showing up for each other and for our neighbors, the way our ancestors did.</p><p style="margin: 0; font-size: 16px; line-height: 1.55; color: #d6c3ab"><strong style="display: block; margin-bottom: 6px; font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; font-size: 28px; color: #f6ecdf">Movement</strong>Dance, breath, and embodiment practice: letting the body lead us back to ourselves.</p>
     </div>
   </section>
 
-  <!-- LIVING WORLD -->
-  <section class="wrap">
-    <div class="narrow center">
-      <p class="eyebrow r">The world is alive</p>
-      <h2 class="r">Everything here is a relative.</h2>
-      <div class="lede r">
-        <p>There's an old word for how we try to live: <em>animism</em>. It simply means treating the world as alive and worth being in relationship with. Not as a backdrop, not as a resource, but as kin.</p>
-        <p>You don't need to believe anything in particular to walk in. You just need a desire to connect to something deeper within or around yourself.</p>
-      </div>
-      <div class="r" aria-label="What we are in relationship with">
-        <ul class="relations"><li>Source</li><li>Ancestors</li><li>Elements</li><li>Plants</li><li>Seasons</li></ul>
-        <ul class="relations"><li>Sound</li><li>Touch</li><li>Spirit</li><li>Each other</li></ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ROOTS -->
-  <section class="wrap band">
-    <div class="narrow center">
-      <p class="eyebrow r">Our roots</p>
-      <h2 class="r">Rooted in our traditions. Open to everyone.</h2>
-      <div class="lede r">
-        <p>The two friends who live here and host are Black and Jewish, and those lineages run deep in this house, alongside animist, contemplative, and other wisdom traditions we've learned from with gratitude.</p>
-        <p>They're where we come from, not a password at the door. Whoever you are and whatever you carry, there's a cushion for you.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- WAYS -->
-  <section class="wrap">
-    <div class="center">
-      <p class="eyebrow r">How we gather</p>
-      <h2 class="r">Five doorways in</h2>
-    </div>
-    <div class="ways">
-      <div class="way r"><h3>Breaking Bread</h3><p>Shared meals, potlucks, and grills. Food finds its way into much of what we do.</p></div>
-      <div class="way r d1"><h3>Story &amp; Song</h3><p>Poems, jams, and drum circles, and the stories that remind us who we really are.</p></div>
-      <div class="way r d2"><h3>Stillness</h3><p>Meditation, prayer, and ritual: quieter ways of listening to ourselves and to the world.</p></div>
-      <div class="way r d3"><h3>Mutual Care</h3><p>Showing up for each other and for our neighbors, the way our ancestors did.</p></div>
-      <div class="way r d4"><h3>Movement</h3><p>Dance, breath, and embodiment practice: letting the body lead us back to ourselves.</p></div>
-    </div>
-  </section>
-
-  <!-- GATHERINGS -->
-  <section id="gatherings" class="wrap band">
-    <div class="center">
-      <p class="eyebrow r">Gatherings</p>
-      <h2 class="r">What actually happens here</h2>
-      <p class="lede narrow r">A few of the rhythms we keep coming back to.</p>
-    </div>
-    <div class="gatherings">
-      <article class="gathering r">
-        <p class="kind">Music</p>
-        <h3>Jams &amp; Drum Circles</h3>
-        <p>Bring an instrument, or borrow one of ours. We start with drums, drift into songs, and keep playing as long as the room wants to.</p>
-      </article>
-      <article class="gathering r d1">
-        <p class="kind">Salon</p>
-        <h3>Music &amp; Poetry Salons</h3>
-        <p>An evening of songs and poems from friends, then an open mic and an open jam. Radical inclusion, mild transcendence.</p>
-      </article>
-      <article class="gathering r d2">
-        <p class="kind">Practice</p>
-        <h3>Meditation &amp; Prayer</h3>
-        <p>Experiments in stillness and devotion, open to people of any belief or none. Come curious and leave with a practice to take home.</p>
-      </article>
-      <article class="gathering r">
-        <p class="kind">Table</p>
-        <h3>Shabbat &amp; Holy Days</h3>
-        <p>Cozy, co-created celebrations with a little tradition, a lot of song, and a healthy dose of food and hanging out.</p>
-      </article>
-      <article class="gathering r d1">
-        <p class="kind">Outdoors</p>
-        <h3>Out in the Living World</h3>
-        <p>Tree blessings, barefoot walks, and potlucks in the park, then long evenings around the fire pit in the backyard.</p>
-      </article>
-      <article class="gathering r d2">
-        <p class="kind">Learning</p>
-        <h3>Listening &amp; Learning</h3>
-        <p>Teachings, texts, and podcasts that crack us open, taken in together and talked over afterward with a pot of tea.</p>
-      </article>
-    </div>
-    <div class="notice r">
-      <p>Hear about upcoming gatherings first. <a href="https://chat.whatsapp.com/JQQAqV2BCD7Ao9sQwFmjcp" target="_blank" rel="noopener">Join our WhatsApp Announcements group ↗</a></p>
-    </div>
-  </section>
-
-  <!-- STORY -->
-  <section id="story" class="wrap">
-    <div class="narrow center">
-      <p class="eyebrow center r">Our story</p>
-      <h2 class="center r">It started around a table.</h2>
-      <div class="lede r">
-        <p>Sanctuary began with two best friends who became roommates, and then kept inviting people over. One dinner became a Shabbat. A Shabbat became a jam. A jam became a drum circle in the backyard, and somewhere along the way the apartment stopped feeling like an apartment.</p>
-        <p>Over the years we've hosted well over a hundred gatherings. We learned what anyone who has thrown a good dinner party already knows: there is no replacement for the connections that form in a home, around hosts who love you.</p>
-      </div>
-      <p class="pull r">People here aren't consumers or participants. They're part of a community that takes care of each other.</p>
-      <div class="lede r">
-        <p>We also weave with other community builders, healers, artists, and organizations across Brooklyn, and our door is open to more of them.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- HOSTS -->
-  <section id="hosts" class="wrap band">
-    <div class="center">
-      <p class="eyebrow r">Your hosts</p>
-      <h2 class="r">Two friends, one house</h2>
-    </div>
-    <div class="hosts">
-      <article class="host r">
-        <div class="portrait"><img src="/images/chloe.jpg" alt="Chloé Simone playing guitar on a park bench"></div>
-        <h3>Chloé Simone</h3>
-        <p class="role">Co-founder &amp; host</p>
-        <p>Chloé is the founder of Theory of Enchantment, a practice of chanting, breath, sound, and spiritual counseling that helps people find their voice and use it to build connection. Her work on belonging has reached audiences from TED to Harvard and has been covered by <em>The New York Times</em>, <em>The Atlantic</em>, and NPR.</p>
-        <p>At Sanctuary she's the one who will get the whole room singing.</p>
-        <div class="links">
-          <a class="link" href="https://theoryofenchantment.com/" target="_blank" rel="noopener">Theory of Enchantment <span class="arrow">↗</span></a>
-          <a class="ig" href="https://www.instagram.com/domthefloor/" target="_blank" rel="noopener" aria-label="Chloé on Instagram"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></a>
+  <!-- calendar: terracotta handbill, umber ink, two taped prints spilling over the edge -->
+  <section id="calendar" class="hb-glow" style="position: relative; padding: 46px max(20px, 3vw) 72px; width: 1205px; height: auto">
+    <div class="hb-stamp" style="position: absolute; top: 60px; right: 4%; width: 21%; z-index: 2; transform: rotate(5deg); background: #f6ecdf; padding: 12px 12px 20px; box-shadow: 0 24px 50px -18px rgba(0,0,0,0.6)">
+          <img src="/images/v2/drum-jam.jpg" alt="A late-night jam: a djembe in the foreground, a keyboard on the floor, people playing guitar and drums under string lights" style="width: 100%; aspect-ratio: 1; object-fit: cover; display: block">
         </div>
-      </article>
-      <article class="host r d1">
-        <div class="portrait"><img src="/images/zach.jpg" alt="Zach Schaffer sitting cross-legged on sand, hands open"></div>
-        <h3>Zach Schaffer</h3>
-        <p class="role">Co-founder &amp; host</p>
-        <p>Zach is a founder, facilitator, and educator who designs rituals and gatherings that help people find their way back to one another. He co-founded Project Shema, a leading antisemitism education organization rooted in curiosity and compassion, and has spent more than a decade bringing people together across differences.</p>
-        <p>At Sanctuary, ask him what’s cooking. It’s usually a meal, a ritual, or an introduction.</p>
-        <div class="links">
-          <a class="link" href="https://www.zachschaffer.com" target="_blank" rel="noopener">zachschaffer.com <span class="arrow">↗</span></a>
-          <a class="ig" href="https://www.instagram.com/pocketmangos/" target="_blank" rel="noopener" aria-label="Zach on Instagram"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></a>
+    <p style="margin: 0 0 28px; font-family: 'Courier Prime', monospace; font-weight: 700; font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: #f6ecdf">Gatherings</p>
+    <h2 style="margin: 0; font-family: 'Anton', Impact, sans-serif; font-weight: 400; font-size: clamp(64px, 9vw, 150px); line-height: 0.85; text-transform: uppercase; color: #f6ecdf">On the calendar,</h2>
+    <p style="margin: 22px 0 70px 8%; font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; font-size: clamp(44px, 5vw, 80px); line-height: 1; color: #e6a94a">more or less.</p>
+    <div class="hb-col" style="display: flex; gap: 60px; align-items: flex-start">
+      <ul style="flex: 0 0 60%; width: 60%; list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0">
+        <li style="display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px 20px; padding: 14px 0; border-top: 1.5px solid rgba(246,236,223,0.2)"><strong style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; font-size: clamp(36px, 3.9vw, 50px); line-height: 1; color: #e6a94a">Jams &amp; drum circles</strong><span style="margin-left: auto; font-family: 'Courier Prime', monospace; font-size: 14px; color: #a48d73; white-space: nowrap">drums → songs</span></li>
+        <li style="display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px 20px; padding: 14px 0; border-top: 1.5px solid rgba(246,236,223,0.2)"><strong style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; font-size: clamp(36px, 3.9vw, 50px); line-height: 1; color: #d9734a">Music &amp; poetry salons</strong><span style="margin-left: auto; font-family: 'Courier Prime', monospace; font-size: 14px; color: #a48d73; white-space: nowrap">showcases and open mics</span></li>
+        <li style="display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px 20px; padding: 14px 0; border-top: 1.5px solid rgba(246,236,223,0.2)"><strong style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; font-size: clamp(36px, 3.9vw, 50px); line-height: 1; color: #b88cc0">Meditation &amp; prayer</strong><span style="margin-left: auto; font-family: 'Courier Prime', monospace; font-size: 14px; color: #a48d73; white-space: nowrap">any belief or none</span></li>
+        <li style="display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px 20px; padding: 14px 0; border-top: 1.5px solid rgba(246,236,223,0.2)"><strong style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; font-size: clamp(36px, 3.9vw, 50px); line-height: 1; color: #e6a94a">Shabbat &amp; holy days</strong><span style="margin-left: auto; font-family: 'Courier Prime', monospace; font-size: 14px; color: #a48d73; white-space: nowrap">ritual, community, food</span></li>
+        <li style="display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px 20px; padding: 14px 0; border-top: 1.5px solid rgba(246,236,223,0.2)"><strong style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; font-size: clamp(36px, 3.9vw, 50px); line-height: 1; color: #8fa36b">Out in the living world</strong><span style="margin-left: auto; font-family: 'Courier Prime', monospace; font-size: 14px; color: #a48d73; white-space: nowrap">parks, fire, trees</span></li>
+        <li style="display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px 20px; padding: 14px 0; border-top: 1.5px solid rgba(246,236,223,0.2)"><strong style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; font-size: clamp(36px, 3.9vw, 50px); line-height: 1; color: #d9734a">Listening &amp; learning</strong><span style="margin-left: auto; font-family: 'Courier Prime', monospace; font-size: 14px; color: #a48d73; white-space: nowrap">texts, podcasts, tea</span></li>
+      </ul>
+      <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 0; padding-top: 10px">
+        <div style="position: relative; transform: rotate(-3deg); background: #f6ecdf; padding: 12px 12px 20px; margin-right: -12%; box-shadow: 0 24px 50px -18px rgba(0,0,0,0.6); width: 78%; margin-left: auto">
+          <span aria-hidden="true" style="position: absolute; top: -12px; right: 20%; width: 90px; height: 26px; background: rgba(143,163,107,0.75); transform: rotate(5deg)"></span>
+          <img src="/images/v2/shakshuka.jpg" alt="Skillets of shakshuka on a crowded table" style="width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block">
         </div>
-      </article>
+      </div>
     </div>
+    
   </section>
 
-</main>
+  <!-- story: two very different column widths, a big indented pull quote -->
+  <section id="story" class="hb-glow hb-dim" style="padding: 65px max(20px, 3vw) 65px">
 
-<div class="dusk">
-  <!-- COME -->
-  <section id="come" class="come wrap center">
-    <div class="narrow">
-      <p class="eyebrow r">Come by</p>
-      <h2 class="r">Our door is open.</h2>
-      <p class="lede r">Come to a gathering, bring a friend, a snack, or an offering. If you're a community weaver, artist, or organization dreaming up something together, we'd love to hear from you too.</p>
-      <a class="email r" href="mailto:sanctuarybklyn@gmail.com">sanctuarybklyn@gmail.com</a>
-      <div class="come-wa r">
-        <a class="btn" href="https://chat.whatsapp.com/JQQAqV2BCD7Ao9sQwFmjcp" target="_blank" rel="noopener">Join us on WhatsApp ↗</a>
-        <p class="come-note">Our announcements group: the best way to hear about upcoming gatherings.</p>
+    <div class="hb-col" style="display: flex; gap: 60px; align-items: center">
+      <div style="flex: 0 0 46%"><div style="width: 100%; aspect-ratio: 900 / 1000; border-radius: 999px 999px 18px 18px; overflow: hidden; box-shadow: 0 0 0 1px rgba(246,236,223,0.18), 0 30px 80px -30px rgba(0,0,0,0.6)"><img src="/images/v2/candle-table.jpg" alt="A low table set with candles and plants for a gathering" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 55%; display: block"></div></div>
+      <div style="flex: 1; min-width: 0"><p style="margin: 0 0 22px; font-family: 'Courier Prime', monospace; font-weight: 700; font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: #d9734a">Our story</p>
+        <h2 style="margin: 0 0 24px; font-family: 'Anton', Impact, sans-serif; font-weight: 400; text-transform: uppercase; font-size: 84px; line-height: 0.95; color: #e6a94a">It started around a table.</h2>
+        <div style="display: flex; flex-direction: column; gap: 14px"><p style="margin: 0; color: #d6c3ab; font-size: 17px; line-height: 1.6">Sanctuary began with two best friends who became roommates, and then kept inviting people over. One dinner became a Shabbat. A Shabbat became a jam. A jam became a drum circle in the backyard, and somewhere along the way the apartment stopped feeling like an apartment.</p><p style="margin: 0; color: #c9a3d1; font-size: 17px; line-height: 1.6">Over the years we've hosted well over a hundred gatherings. We learned what anyone who has thrown a good dinner party already knows: there is no replacement for the connections that form in a home, around hosts who love you.</p><p style="margin: 0; color: #d6c3ab; font-size: 17px; line-height: 1.6">We also weave with other community builders, healers, artists, and organizations across Brooklyn, and our door is open to more of them.</p></div>
+      </div>
+    </div>
+    <p style="margin: 50px 0 0; text-align: center; font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 300; font-size: 44px; line-height: 1.12; color: #f6ecdf"><span style="color: #e6a94a">We're part of a community that takes care of each other.</span></p>
+  </section>
+
+  <!-- hosts: two polaroids at different angles, notes typed beneath -->
+  <section id="hosts" class="hb-glow" style="padding: 65px max(20px, 3vw) 65px">
+<p style="margin: 0 0 22px; font-family: 'Courier Prime', monospace; font-weight: 700; font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: #d9734a">Your hosts</p><h2 style="margin: 0 0 44px; font-family: 'Anton', Impact, sans-serif; font-weight: 400; text-transform: uppercase; font-size: 110px; line-height: 0.9">Who's home</h2>
+    <div class="hb-col" style="display: flex; gap: 40px; align-items: center">
+      <div style="flex: 1; min-width: 0; text-align: right; display: flex; flex-direction: column; gap: 16px">
+        <h3 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; font-size: 56px; line-height: 1; color: #e6a94a">Chloé Simone</h3>
+        <p style="margin: 0"><a href="https://www.instagram.com/domthefloor/" target="_blank" rel="noopener" aria-label="Chloé on Instagram" style="display: inline-grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; border: 1px solid rgba(230,169,74,0.55); color: #e6a94a; vertical-align: middle"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></a></p>
+        <p style="margin: 0; font-size: 16px; color: #d6c3ab">Founder of Theory of Enchantment, a practice of chanting, breath, sound, and spiritual counseling that helps people find their voice and use it to build connection.</p><p style="margin: 0; font-family: 'Courier Prime', monospace; font-size: 14px; color: #f6ecdf">at sanctuary: the one who will get the whole room singing. <a href="https://theoryofenchantment.com/" style="color: #d9734a">theoryofenchantment.com ↗</a></p>
+      </div>
+      <div style="flex: 0 0 41%; width: 41%; aspect-ratio: 1 / 1.05; border-radius: 999px 999px 18px 18px; overflow: hidden; display: flex; gap: 4px; box-shadow: 0 0 0 1px rgba(230,169,74,0.5), 0 30px 80px -30px rgba(0,0,0,0.6)">
+        <img src="/images/v2/chloe.jpg" alt="Chloé Simone" style="flex: 1; min-width: 0; height: 100%; object-fit: cover; object-position: 50% 35%">
+        <img src="/images/v2/zach-rock.jpg" alt="Zach Schaffer" style="flex: 1; min-width: 0; height: 100%; object-fit: cover; object-position: 30% 20%">
+      </div>
+      <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+        <h3 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; font-size: 56px; line-height: 1; color: #b88cc0">Zach Schaffer</h3>
+        <p style="margin: 0"><a href="https://www.instagram.com/pocketmangos/" target="_blank" rel="noopener" aria-label="Zach on Instagram" style="display: inline-grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; border: 1px solid rgba(230,169,74,0.55); color: #e6a94a; vertical-align: middle"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></a></p>
+        <p style="margin: 0; font-size: 16px; color: #d6c3ab">A founder, facilitator, and educator who designs rituals and gatherings. He co-founded Project Shema, a leading antisemitism education organization rooted in curiosity and compassion.</p><p style="margin: 0; font-family: 'Courier Prime', monospace; font-size: 14px; color: #f6ecdf">at sanctuary: ask him what's cooking. usually a meal, a ritual, or an introduction. <a href="https://www.zachschaffer.com" style="color: #d9734a">zachschaffer.com ↗</a></p>
       </div>
     </div>
   </section>
 
-  <footer>
-    <p>Sanctuary &middot; Crown Heights, Brooklyn</p>
-  </footer>
+  <!-- door: back to dusk, the loudest type on the page -->
+  <section id="door" style="padding: 78px max(20px, 3vw) 32px; background: linear-gradient(to bottom, rgba(43,32,25,0) 0%, rgba(42,27,58,.85) 40%, #2a1a45 100%); text-align: center">
+    <p style="margin: 0 0 28px; font-family: 'Courier Prime', monospace; font-weight: 700; font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: #e6a94a">Come by</p>
+    <h2 class="hb-giant" style="margin: 0; font-family: 'Anton', Impact, sans-serif; font-weight: 400; font-size: clamp(90px, 13vw, 200px); line-height: 1; text-transform: uppercase; color: #f6ecdf">Our door<br>is open.</h2>
+    <p style="margin: 24px 0 0; font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 300; font-size: clamp(40px, 4.6vw, 72px); line-height: 1; color: #e6a94a">Bring a friend.</p>
+    <div style="margin: 40px auto 0; max-width: 34em; display: flex; flex-direction: column; align-items: center; gap: 16px; font-family: 'Courier Prime', monospace; font-size: 15px; color: #d6c3ab">
+      <p style="margin: 0">a snack, or an offering, too. community weavers, artists, and organizations: we'd love to hear from you.</p>
+      <a href="https://chat.whatsapp.com/JQQAqV2BCD7Ao9sQwFmjcp" style="font-weight: 700; color: #2a1a45; background: #e6a94a; padding: 12px 18px; text-decoration: none">→ join us on whatsapp</a>
+      <span style="color: #e6a94a">sanctuarybklyn@gmail.com</span>
+    </div>
+    <p style="margin: 100px 0 0; font-family: 'Courier Prime', monospace; font-size: 13px; color: #a593b4">sanctuary · crown heights, brooklyn</p>
+  </section>
 </div>
-
-<script>
-  // Reveal on scroll
-  const els = document.querySelectorAll('.r');
-  if ('IntersectionObserver' in window) {
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); } });
-    }, { threshold: 0.05 });
-    els.forEach(el => obs.observe(el));
-  }
-  setTimeout(() => els.forEach(el => el.classList.add('on')), 2500);
-
-</script>
 </body>
 </html>
