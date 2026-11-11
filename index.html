@@ -26,6 +26,7 @@
 
 
 
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Instrument+Serif:ital@0;1&amp;family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,300;1,9..144,400&amp;family=Courier+Prime:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
@@ -143,6 +144,12 @@ a:focus-visible{outline:2px solid #d9734a;outline-offset:3px}
   section#calendar:not(#z){padding-top:28px !important}
   section#story:not(#z){padding-bottom:28px !important}
   section#hosts:not(#z){padding-top:28px !important}
+  #story .hb-col{gap:0 !important}
+  #story .hb-col > div:last-child{display:contents !important}
+  #story .hb-col > div:last-child > p{order:1}
+  #story .hb-col > div:last-child > h2{order:2}
+  #story .hb-col > div:first-child{order:3;margin:4px 0 28px !important}
+  #story .hb-col > div:last-child > div{order:4}
   #about [aria-label="Home."]{font-size:37.6vw !important;transform:scaleY(1.12);transform-origin:50% 0;margin-bottom:0.1em}
 }
 @media (max-width: 360px){
